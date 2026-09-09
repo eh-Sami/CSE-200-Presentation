@@ -1,0 +1,1157 @@
+% To merge into the real deck: replace the next line with
+% \input{../../preamble.tex}  (the teacher's actual preamble)
+\input{preamble.tex}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ================================================================
+% PART 1 — HISTORY (3 frames): the crisis, the pre-Mandelbrot
+% "monsters", and Mandelbrot's reframing.
+% ================================================================
+\section{History}
+
+% ---------------------------------------------------------------
+% Frame 1 of 3: The crisis — an assumption calculus took for granted
+% ---------------------------------------------------------------
+\begin{frame}{A Crisis in 19th-Century Mathematics}
+  \small
+  For centuries, calculus rested on an assumption that felt obvious:
+
+  \begin{conceptbox}{The Assumption}
+    Any continuous curve is \highlight{smooth almost everywhere} —
+    zoom in far enough on any point, and the curve should straighten
+    out into a well-defined tangent line.
+  \end{conceptbox}
+
+  \pause
+  \vspace{0.3cm}
+  This wasn't just intuition — it was treated as close to self-evident.
+  \highlight{Continuity} was assumed to imply \highlight{differentiability},
+  almost everywhere, almost always.
+
+  \pause
+  \vspace{0.3cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.75\textwidth] {
+        \centering
+        In 1872, \highlight{Karl Weierstrass} broke this assumption —
+        on purpose.
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \pause
+  \vspace{0.2cm}
+  He constructed a function that is \highlight{continuous everywhere},
+  yet \highlight{differentiable nowhere}: infinitely jagged, at every
+  single scale, with no tangent line anywhere at all.
+\end{frame}
+
+% ---------------------------------------------------------------
+% Frame 2 of 3: The "monster" era — mathematicians before Mandelbrot
+% ---------------------------------------------------------------
+\begin{frame}{Mathematical "Monsters"}
+  \small
+  Weierstrass's function was treated as a \highlight{pathological
+  monster} — proof that pictures and intuition could not be trusted,
+  and that analysis needed rigorous proof instead.
+
+  \vspace{0.2cm}
+  \pause
+  This set off a chain reaction. Mathematicians began deliberately
+  constructing stranger and stranger shapes, to probe exactly where
+  classical geometry broke down:
+
+  \begin{itemize}
+    \item<3-> \highlight{Georg Cantor} (1883) — the Cantor set: an
+      infinite set of points with zero total length.
+    \item<4-> \highlight{Helge von Koch} (1904) — a geometric,
+      drawable curve that is nowhere smooth: the \highlight{Koch curve}.
+    \item<5-> \highlight{Wac\l{}aw Sierpi\'nski} — self-similar shapes
+      like the \highlight{Sierpi\'nski triangle}.
+    \item<6-> \highlight{Felix Hausdorff} (1918) — gave these shapes a
+      number: a \highlight{fractional dimension}, between the familiar
+      integer dimensions.
+    \item<7-> \highlight{Gaston Julia \& Pierre Fatou} ($\sim$1918) —
+      studied iterated functions in the complex plane, without any way
+      to actually see what they looked like.
+  \end{itemize}
+
+  \pause[8]
+  \vspace{0.2cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.8\textwidth] {
+        \centering
+        For nearly a century, these were considered
+        \highlight{beautiful but useless} — curiosities built to
+        stress-test the foundations of mathematics, not to describe
+        anything real.
+      };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+% ---------------------------------------------------------------
+% Frame 3 of 3: Mandelbrot's question and reframing
+% ---------------------------------------------------------------
+\begin{frame}{Mandelbrot's Question}
+  \small
+  In the 1960s, working at IBM, \highlight{Benoit Mandelbrot} asked a
+  deceptively simple question:
+
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.8\textwidth] {
+        \centering
+        \textit{``How long is the coast of Britain?''}
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \pause
+  \vspace{0.2cm}
+  The honest answer: \highlight{it depends on your ruler}. Measure
+  with a 100~km ruler, get one length. Use a 1~km ruler, and the
+  measured length grows — every bay and inlet you'd smoothed over
+  now counts. The length never converges to a single number.
+
+  \pause
+  \vspace{0.2cm}
+  Mandelbrot's insight: this isn't a flaw in the coastline — it's a
+  sign that classical length and area are \highlight{the wrong tools}
+  for something like this. What a coastline actually needs is exactly
+  the "useless" mathematics of Cantor, Koch, and Hausdorff.
+
+  \pause
+  \vspace{0.2cm}
+  \begin{itemize}
+    \item He had a real problem no one had connected to these ideas.
+    \item He had \highlight{computers} — something Cantor, Koch, and
+      Julia never had — letting him \emph{see} these shapes for the
+      first time.
+    \item He united a century of scattered ``monsters'' under one
+      name: \highlight{fractal}, from the Latin \textit{fractus}
+      (``broken'').
+  \end{itemize}
+\end{frame}
+
+% ================================================================
+% PART 2 — DEFINITION + SIERPINSKI CONSTRUCTION WALKTHROUGH
+% ================================================================
+\section{Definition}
+
+\begin{frame}{What are Fractals?}
+  \begin{conceptbox}{Definition}
+    A \highlight{fractal} is a geometric shape containing detailed
+    structure at arbitrarily small scales, usually having a
+    \highlight{fractal dimension} strictly exceeding the
+    \highlight{topological dimension}.
+  \end{conceptbox}
+
+  \vspace{0.1cm}
+
+  \textbf{Key Characteristics:}
+  \begin{itemize}
+    \item \highlight{Scale invariance}: Details at every level of magnification
+    \item \highlight{Fractal dimension}: More than the \textit{conventional} dimension
+    \item \highlight{Infinite complexity}: Generated by simple, recursive rules
+      \begin{itemize}
+        \item Like the infinite complexities of nature
+      \end{itemize}
+  \end{itemize}
+
+  \vspace{0.1cm}
+
+  \pause
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.7\textwidth] {
+        \centering
+        \textit{"Clouds are not spheres, mountains are not cones, coastlines are not circles..."} \\
+        \textbf{--- Benoit Mandelbrot}
+      };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\section{Some Fractals}
+
+\begin{frame}{The Sierpinski Triangle}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \small
+      \only<1-4>{
+        Let's construct the Sierpinski Triangle:
+        \begin{conceptbox}{Construction Process}
+          \footnotesize
+          \begin{enumerate}
+            \item Start with an equilateral triangle
+            \item<2-> Remove the central triangle (triangle connecting midpoints of the sides)
+            \item<3-> Repeat for each triangle
+            \item<4-> After infinite iterations, we get the Sierpinski Triangle
+          \end{enumerate}
+        \end{conceptbox}
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \begin{figure}
+          \foreach \t/\i in {1/0,2/1,3/2,4/3} {
+            \only<\t>{
+              \includegraphics[width=\textwidth]{images/sierpinski/\i.png}
+              \caption*{Iteration \i}
+            }
+          }
+        \end{figure}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ================================================================
+% PART 3 — SIERPINSKI AREA & PERIMETER CALCULATION
+% ================================================================
+\section{Area \& Perimeter}
+
+\begin{frame}{The Sierpinski Triangle: Area}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \small
+      Now let's find the area of triangle(s):
+      \begin{mathbox}{Area Calculation}
+        \footnotesize
+        \begin{align*}
+          \only<1->{
+            A_0 &= \frac{1}{2}\cdot \sin(60^\circ) \cdot a^2 = \frac{\sqrt{3}}{4} a^2 \\
+          }
+          \only<2>{
+            A_1 &= A_0 - \frac{1}{2}\cdot \sin(60^\circ) \cdot \left(\frac{a}{2}\right)^2 \\
+            &= A_0 - \frac{\sqrt{3}}{16} a^2 = A_0 - \frac{1}{4} A_0 \\
+            &= \frac{3}{4} A_0
+          }
+          \only<3->{
+            A_1  &= \left(1-\frac{1}{4}\right) A_0 =  \frac{3}{4} A_0 \\
+            A_2 &= \left(1-\frac{1}{4}\right) A_1 = \left(\frac{3}{4}\right)^2 A_0 \\
+          }
+          \only<4->{
+            \hdots \\
+            A_n &= \left(1-\frac{1}{4}\right)^n A_0 = \left(\frac{3}{4}\right)^n A_0 \\
+            \lim_{n \to \infty} A_n &= 0
+          }
+        \end{align*}
+      \end{mathbox}
+      \only<2-3>{
+        We cut out one fourth of the area at each step. So, naturally
+        area is reduced by $\frac{3}{4}$ at each step.
+      }
+      \only<4->{
+        \highlight{The area of the Sierpinski Triangle is zero even
+        though it is a 2D shape.}
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \begin{figure}
+          \foreach \t/\i in {1/0, 2/1, 3/2, 4/3} {
+            \only<\t>{
+              \includegraphics[width=\textwidth]{images/sierpinski/\i.png}
+              \caption*{Iteration \i}
+            }
+          }
+        \end{figure}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The Sierpinski Triangle: Perimeter}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \small
+      Now let's find the perimeter:
+      \begin{mathbox}{Perimeter Calculation}
+        \footnotesize
+        \begin{align*}
+          \only<1->{
+            P_0 &= 3a \\
+          }
+          \only<2->{
+            P_1 &= P_0 + 3\cdot\frac{a}{2} = \frac{9}{2} a = \frac{3}{2} P_0 \\
+          }
+          \only<3->{
+            P_2 &= P_1 + 3\cdot3\cdot\frac{a}{4} = P_1 + \frac{1}{2} P_1 = \frac{3}{2} P_1 \\
+          }
+          \only<4->{
+            \hdots \\
+            P_n &= \frac{3}{2} P_{n-1} = \left(\frac{3}{2}\right)^n P_0 \\
+            \lim_{n \to \infty} P_n &= \infty
+          }
+        \end{align*}
+      \end{mathbox}
+      \only<2-3>{
+        We add half of the previous perimeter at each step.
+        This is because we add the same number of triangles as the
+        last step, but each triangle is half the size of the
+        previous one.
+
+        As a result, the perimeter grows by a factor of $\frac{3}{2}$
+        at each step.
+      }
+      \only<4->{
+        \highlight{The Sierpinski Triangle has infinite perimeter but
+        zero area.}
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \begin{figure}
+          \foreach \t/\i in {1/0, 2/1, 3/2, 4/3} {
+            \only<\t>{
+              \includegraphics[width=\textwidth]{images/sierpinski/\i.png}
+              \caption*{Iteration \i}
+            }
+          }
+        \end{figure}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ================================================================
+% Handoff from Speaker 1
+% ================================================================
+\begin{frame}{Handoff to Speaker 2}
+  \small
+  We've now seen something strange, and precise:
+
+  \begin{itemize}
+    \item A \highlight{2D shape} (Sierpinski Triangle) with
+      \highlight{zero area}.
+    \item A shape built from a rule so simple a child could apply it
+      by hand.
+    \item No matter how far we zoom in, there's always more detail.
+  \end{itemize}
+
+  \pause
+  \vspace{0.3cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.8\textwidth] {
+        \centering
+        If it isn't a line, and it isn't a surface --- what
+        \highlight{is} its true dimension?
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \vspace{0.2cm}
+  \pause
+  That number is exactly what Hausdorff was reaching for in 1918 ---
+  and it's where Speaker~2 picks up the story.
+\end{frame}
+
+% ================================================================
+% PART 2 — FRACTAL DIMENSION (Speaker 2)
+% 9 frames: transition, integer dims, Sierpinski reveal,
+%   scaling, formula, Sierpinski derivation, Koch derivation,
+%   box-counting theory, handoff to Speaker 3
+% ================================================================
+\section{Fractal Dimension}
+
+% ---------------------------------------------------------------
+% S2 Frame 1: Transition — section title
+% ---------------------------------------------------------------
+\begin{frame}{}
+  \vfill
+  \begin{center}
+    {\large\color{SecondaryColor}\itshape
+      Let's talk about a property of fractals\ldots}
+
+    \vspace{0.8cm}
+    \begin{tikzpicture}
+      \draw[PrimaryColor, line width=1.5pt] (-3.5,0) -- (3.5,0);
+      \foreach \x in {-3,-2.5,...,3}
+        \draw[AccentColor, line width=0.8pt] (\x,0.12) -- (\x,-0.12);
+    \end{tikzpicture}
+
+    \vspace{0.8cm}
+    {\fontsize{26}{32}\selectfont\bfseries\color{PrimaryColor}
+      Fractal Dimension}
+
+    \vspace{0.5cm}
+    {\small\color{DarkGray}
+      What does it mean for a shape to have a
+      \highlight{non-integer} dimension?}
+  \end{center}
+  \vfill
+\end{frame}
+
+% ---------------------------------------------------------------
+% S2 Frame 2: Dimensions We Know (3 cumulative overlays)
+% ---------------------------------------------------------------
+\begin{frame}{Dimensions We Know}
+  \small
+  We are all familiar with integer dimensions:
+  \vspace{0.2cm}
+  \begin{center}
+    \begin{tikzpicture}[
+        dbox/.style={rounded corners=3pt, draw=PrimaryColor,
+          fill=PrimaryColor!12, inner sep=5pt,
+          font=\Large\bfseries, text=PrimaryColor}
+      ]
+      % ── Row 1: Line → 1D ──
+      \onslide<1->{
+        \draw[ObjectColor, line width=3pt] (-4,2) -- (-1,2);
+        \node[font=\footnotesize, text=DarkGray, below]
+          at (-2.5,1.7) {Line};
+        \draw[-{Stealth[length=5pt]}, thick, AccentColor]
+          (-0.3,2) -- (0.5,2);
+        \node[dbox] at (1.6,2) {1D};
+      }
+
+      % ── Row 2: Square → 2D ──
+      \onslide<2->{
+        \draw[ObjectColor, line width=1.5pt, fill=ObjectColor!18]
+          (-4,-0.8) rectangle (-1.6,0.8);
+        \node[font=\footnotesize, text=DarkGray, below]
+          at (-2.8,-1) {Square};
+        \draw[-{Stealth[length=5pt]}, thick, AccentColor]
+          (-0.3,0) -- (0.5,0);
+        \node[dbox] at (1.6,0) {2D};
+      }
+
+      % ── Row 3: Cube → 3D ──
+      \onslide<3->{
+        \begin{scope}[shift={(-4,-3.5)}]
+          % front face
+          \draw[ObjectColor, line width=1.5pt, fill=ObjectColor!20]
+            (0,0) rectangle (1.8,1.8);
+          % top face
+          \draw[ObjectColor, line width=1.5pt, fill=ObjectColor!28]
+            (0,1.8) -- (0.55,2.3) -- (2.35,2.3)
+            -- (1.8,1.8) -- cycle;
+          % right face
+          \draw[ObjectColor, line width=1.5pt, fill=ObjectColor!12]
+            (1.8,0) -- (2.35,0.5) -- (2.35,2.3)
+            -- (1.8,1.8) -- cycle;
+        \end{scope}
+        \node[font=\footnotesize, text=DarkGray, below]
+          at (-2.8,-3.75) {Cube};
+        \draw[-{Stealth[length=5pt]}, thick, AccentColor]
+          (-0.3,-2.6) -- (0.5,-2.6);
+        \node[dbox] at (1.6,-2.6) {3D};
+      }
+    \end{tikzpicture}
+  \end{center}
+
+  \onslide<3->{
+    \begin{center}
+      {\itshape\color{DarkGray}
+        Dimensions are always whole numbers\ldots\ right?}
+    \end{center}
+  }
+\end{frame}
+
+% ---------------------------------------------------------------
+% S2 Frame 3: What About This One? (2 overlays)
+% ---------------------------------------------------------------
+\begin{frame}{What About This One?}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}
+      \only<1>{
+        \small
+        \vspace{0.5cm}
+        {\large What dimension does this shape have?}
+
+        \vspace{0.4cm}
+        {\itshape Any guesses?}
+
+        \vspace{0.3cm}
+        \begin{itemize}
+          \item It lives in 2D space\ldots
+          \item But it has \highlight{zero area}
+          \item And \highlight{infinite perimeter}
+        \end{itemize}
+
+        \vspace{0.3cm}
+        It's not quite 2D, but it's clearly more than 1D\ldots
+      }
+      \only<2>{
+        \begin{conceptbox}{Sierpinski Dimension}
+          The Sierpinski Triangle has a fractal dimension of:
+          \begin{center}
+            {\fontsize{28}{34}\selectfont
+              $D \approx \highlight{1.585}$}
+
+            \vspace{0.1cm}
+            {\Large\color{RayColor}\textbf{!!}}
+          \end{center}
+
+          \vspace{0.2cm}
+          A \highlight{non-integer} dimension --- between a line
+          (1D) and a filled surface (2D).
+        \end{conceptbox}
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \begin{figure}
+          \includegraphics[width=0.85\textwidth]
+            {images/sierpinski/5.png}
+          \only<1>{\caption*{Sierpinski Triangle}}
+          \only<2>{\caption*{$D=\log3/\log2\approx1.585$}}
+        \end{figure}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+% S2 Frame 4: Self-Similarity & Scaling (5 overlays)
+% ---------------------------------------------------------------
+\begin{frame}{Self-Similarity \& Scaling}
+  \centering
+
+  % ── Overlay 1: Scaling a Line ──
+  \only<1>{%
+    \begin{tcolorbox}[colback=PrimaryColor!8, colframe=PrimaryColor, arc=2mm, boxrule=1pt,
+                      width=0.96\textwidth, halign=center, top=3pt, bottom=3pt]
+      \textbf{\color{PrimaryColor}Scaling a Line ($D = 1$)}:\quad
+      Scale by $r = \frac{1}{2} \implies$ \highlight{2 pieces}.
+      \quad Scale again by $\frac{1}{2} \implies 2 \times 2 = \mathbf{4\text{ pieces}}$.
+    \end{tcolorbox}
+
+    \vspace{0.45cm}
+    \begin{center}
+      \begin{tikzpicture}[scale=0.88]
+        % Original Line
+        \draw[ObjectColor, line width=3.5pt] (-6.0, 0) -- (-3.4, 0);
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (-4.7, 0) {Original Line};
+
+        % Arrow 1
+        \draw[-{Stealth[scale=1.2]}, line width=2pt, AccentColor]
+          (-2.9, 0) -- (-1.9, 0);
+        \node[font=\small\bfseries, above=2pt, AccentColor]
+          at (-2.4, 0.1) {$\times\frac{1}{2}$};
+
+        % 2 Pieces
+        \draw[ObjectColor, line width=3.5pt] (-1.4, 0) -- (-0.2, 0);
+        \draw[ObjectColor, line width=3.5pt] (0.1, 0) -- (1.3, 0);
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (-0.05, 0) {\textbf{2} pieces};
+
+        % Arrow 2
+        \draw[-{Stealth[scale=1.2]}, line width=2pt, AccentColor]
+          (1.8, 0) -- (2.8, 0);
+        \node[font=\small\bfseries, above=2pt, AccentColor]
+          at (2.3, 0.1) {$\times\frac{1}{2}$};
+
+        % 4 Pieces
+        \foreach \k in {0, 1, 2, 3} {
+          \draw[ObjectColor, line width=3.5pt]
+            (3.3 + \k*0.75, 0) -- ++(0.55, 0);
+        }
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (4.7, 0) {\textbf{4} pieces};
+      \end{tikzpicture}
+    \end{center}
+  }%
+
+  % ── Overlay 2: Scaling a Square — Step 1 (4 pieces) ──
+  \only<2>{%
+    \begin{tcolorbox}[colback=PrimaryColor!8, colframe=PrimaryColor, arc=2mm, boxrule=1pt,
+                      width=0.96\textwidth, halign=center, top=3pt, bottom=3pt]
+      \textbf{\color{PrimaryColor}Scaling a Square ($D = 2$) --- Step 1}:\quad
+      Scale by $r = \frac{1}{2} \implies$ \highlight{4 self-similar pieces} ($2 \times 2$ grid).
+    \end{tcolorbox}
+
+    \vspace{0.45cm}
+    \begin{center}
+      \begin{tikzpicture}[scale=0.85]
+        % Original Square
+        \draw[ObjectColor, line width=1.5pt, fill=ObjectColor!18]
+          (-5.5, -0.9) rectangle ++(1.8, 1.8);
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (-4.6, -0.9) {Original Square};
+
+        % Arrow 1
+        \draw[-{Stealth[scale=1.1]}, line width=1.8pt, AccentColor]
+          (-3.2, 0) -- (-2.2, 0);
+        \node[font=\scriptsize\bfseries, above=1pt, AccentColor]
+          at (-2.7, 0.1) {$\times\frac{1}{2}$};
+
+        % 4 Pieces (2x2 grid)
+        \foreach \i in {0, 1} {
+          \foreach \j in {0, 1} {
+            \draw[ObjectColor, line width=1pt, fill=ObjectColor!18]
+              (-1.8 + \i*1.05, -0.85 + \j*1.05) rectangle ++(0.8, 0.8);
+          }
+        }
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (-0.95, -0.85) {\textbf{4} pieces};
+
+        % Result Badge
+        \node[font=\normalsize\bfseries, PrimaryColor, right]
+          at (0.7, 0) {$N = 2^2 = \mathbf{4}$};
+      \end{tikzpicture}
+    \end{center}
+  }%
+
+  % ── Overlay 3: Scaling a Square — Step 2 (16 pieces) ──
+  \only<3>{%
+    \begin{tcolorbox}[colback=PrimaryColor!8, colframe=PrimaryColor, arc=2mm, boxrule=1pt,
+                      width=0.96\textwidth, halign=center, top=3pt, bottom=3pt]
+      \textbf{\color{PrimaryColor}Scaling a Square ($D = 2$) --- Step 2}:\quad
+      Scale each piece by $\frac{1}{2}$ again $\implies 4 \times 4 = \mathbf{16\text{ self-similar pieces}}$ ($4 \times 4$ grid)!
+    \end{tcolorbox}
+
+    \vspace{0.45cm}
+    \begin{center}
+      \begin{tikzpicture}[scale=0.85]
+        % Stage 1: Original Square
+        \draw[ObjectColor, line width=1.5pt, fill=ObjectColor!18]
+          (-5.5, -0.9) rectangle ++(1.8, 1.8);
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (-4.6, -0.9) {Original};
+
+        % Arrow 1
+        \draw[-{Stealth[scale=1.1]}, line width=1.8pt, AccentColor]
+          (-3.2, 0) -- (-2.2, 0);
+        \node[font=\scriptsize\bfseries, above=1pt, AccentColor]
+          at (-2.7, 0.1) {$\times\frac{1}{2}$};
+
+        % Stage 2: 4 Pieces (2x2 grid)
+        \foreach \i in {0, 1} {
+          \foreach \j in {0, 1} {
+            \draw[ObjectColor, line width=1pt, fill=ObjectColor!18]
+              (-1.8 + \i*1.05, -0.85 + \j*1.05) rectangle ++(0.8, 0.8);
+          }
+        }
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (-0.95, -0.85) {\textbf{4} pieces};
+
+        % Arrow 2
+        \draw[-{Stealth[scale=1.1]}, line width=1.8pt, AccentColor]
+          (0.6, 0) -- (1.6, 0);
+        \node[font=\scriptsize\bfseries, above=1pt, AccentColor]
+          at (1.1, 0.1) {$\times\frac{1}{2}$};
+
+        % Stage 3: 16 Pieces (4 clusters of 2x2 mini-squares)
+        \foreach \ci in {0, 1} {
+          \foreach \cj in {0, 1} {
+            \foreach \i in {0, 1} {
+              \foreach \j in {0, 1} {
+                \draw[ObjectColor, line width=0.8pt, fill=ObjectColor!18]
+                  (2.1 + \ci*1.02 + \i*0.44, -0.92 + \cj*1.02 + \j*0.44) rectangle ++(0.36, 0.36);
+              }
+            }
+          }
+        }
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (2.95, -0.92) {\textbf{16} pieces};
+
+        % Result Badge
+        \node[font=\normalsize\bfseries, PrimaryColor, right]
+          at (4.5, 0) {$N = 4^2 = \mathbf{16}$};
+      \end{tikzpicture}
+    \end{center}
+  }%
+
+  % ── Overlay 4: Scaling a Cube ──
+  \only<4>{%
+    \begin{tcolorbox}[colback=PrimaryColor!8, colframe=PrimaryColor, arc=2mm, boxrule=1pt,
+                      width=0.96\textwidth, halign=center, top=3pt, bottom=3pt]
+      \textbf{\color{PrimaryColor}Scaling a Cube ($D = 3$)}:\quad
+      Scale by $r = \frac{1}{2} \implies$ \highlight{8 self-similar pieces} ($2 \times 2 \times 2$ grid in 3D).
+    \end{tcolorbox}
+
+    \vspace{0.35cm}
+    \begin{center}
+      \begin{tikzpicture}[scale=0.80]
+        % Left: Original Cube
+        \filldraw[draw=ObjectColor, line width=1.5pt, fill=ObjectColor!30]
+          (-4.2, 0.9) -- ++(0.65, 0.65) -- ++(1.8, 0) -- ++(-0.65, -0.65) -- cycle;
+        \filldraw[draw=ObjectColor, line width=1.5pt, fill=ObjectColor!20]
+          (-2.4, -0.9) -- ++(0.65, 0.65) -- ++(0, 1.8) -- ++(-0.65, -0.65) -- cycle;
+        \filldraw[draw=ObjectColor, line width=1.5pt, fill=ObjectColor!14]
+          (-4.2, -0.9) rectangle ++(1.8, 1.8);
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (-2.95, -1.1) {Original Cube};
+
+        % Center: Transition Arrow
+        \draw[-{Stealth[scale=1.2]}, line width=2pt, AccentColor]
+          (-1.4, 0.1) -- (-0.1, 0.1);
+        \node[font=\small\bfseries, above=2pt, AccentColor]
+          at (-0.75, 0.25) {scale $\times\frac{1}{2}$};
+
+        % Right: 8 Separated Small Cubes
+        % Back layer (Z = 1, offset by (0.85, 0.85))
+        \foreach \i in {0, 1} {
+          \foreach \j in {0, 1} {
+            \begin{scope}[shift={(0.6 + 0.85 + \i*1.30, -1.0 + 0.85 + \j*1.30)}]
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!30]
+                (0, 0.75) -- ++(0.35, 0.35) -- ++(0.75, 0) -- ++(-0.35, -0.35) -- cycle;
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!20]
+                (0.75, 0) -- ++(0.35, 0.35) -- ++(0, 0.75) -- ++(-0.35, -0.35) -- cycle;
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!14]
+                (0, 0) rectangle ++(0.75, 0.75);
+            \end{scope}
+          }
+        }
+
+        % Front layer (Z = 0)
+        \foreach \i in {0, 1} {
+          \foreach \j in {0, 1} {
+            \begin{scope}[shift={(0.6 + \i*1.30, -1.0 + \j*1.30)}]
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!30]
+                (0, 0.75) -- ++(0.35, 0.35) -- ++(0.75, 0) -- ++(-0.35, -0.35) -- cycle;
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!20]
+                (0.75, 0) -- ++(0.35, 0.35) -- ++(0, 0.75) -- ++(-0.35, -0.35) -- cycle;
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!14]
+                (0, 0) rectangle ++(0.75, 0.75);
+            \end{scope}
+          }
+        }
+
+        \node[font=\footnotesize\bfseries, PrimaryColor, below=4pt]
+          at (2.3, -1.1) {\textbf{8} separated cubes};
+
+        % Result Badge
+        \node[font=\normalsize\bfseries, PrimaryColor, right]
+          at (4.3, 0.1) {$N = 2^3 = \mathbf{8}$};
+      \end{tikzpicture}
+    \end{center}
+  }%
+
+  % ── Overlay 5: Do You See a Pattern? ──
+  \only<5>{%
+    \begin{tcolorbox}[colback=PrimaryColor!8, colframe=PrimaryColor, arc=2mm, boxrule=1pt,
+                      width=0.96\textwidth, halign=center, top=3pt, bottom=3pt]
+      \textbf{\color{PrimaryColor}Do You See a Pattern?}\\
+      Each scaling step multiplies pieces by $(1/r)^D$!
+    \end{tcolorbox}
+
+    \vspace{0.25cm}
+    \begin{columns}
+      \begin{column}{0.55\textwidth}
+        \centering
+        \small
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{lcccc}
+          \toprule
+          \textbf{Shape} & \textbf{Scale} & \textbf{1st Step} & \textbf{2nd Step} & \textbf{$D$} \\
+          \midrule
+          Line   & $1/2$ & $2 = 2^1$ & $4 = 2^2$  & \textbf{1} \\
+          Square & $1/2$ & $4 = 2^2$ & $16 = 2^4$ & \textbf{2} \\
+          Cube   & $1/2$ & $8 = 2^3$ & $(64 = 2^6)$ & \textbf{3} \\
+          \bottomrule
+        \end{tabular}
+
+        \vspace{0.3cm}
+        \begin{conceptbox}{The Pattern}
+          \centering
+          \highlight{Number of pieces} $= \left(\dfrac{1}{r}\right)^{\!D}$
+        \end{conceptbox}
+      \end{column}
+      \begin{column}{0.4\textwidth}
+        \begin{center}
+          \includegraphics[width=0.45\textwidth]{images/sierpinski/3.png}
+
+          \vspace{0.2cm}
+          {\Large \textbf{\color{PrimaryColor}$D = \;?$}}\\
+          \vspace{0.1cm}
+          \footnotesize What if the shape is a \highlight{fractal}?
+        \end{center}
+      \end{column}
+    \end{columns}
+  }%
+\end{frame}
+
+% ---------------------------------------------------------------
+% S2 Frame 5: The Self-Similarity Rule (2 overlays)
+% ---------------------------------------------------------------
+\begin{frame}{The Self-Similarity Rule}
+  \centering
+  \small
+  After scaling by factor $r$, the number of self-similar pieces is:
+  \quad
+  \highlight{\Large $N = \left(\dfrac{1}{r}\right)^{\!D}$}
+
+  \vspace{0.25cm}
+  \only<1>{%
+    {\normalsize \textbf{\color{PrimaryColor}Square ($D = 2$)} \quad with scale factor $r = \frac{1}{2}$:\quad
+    $N = \left(\frac{1}{1/2}\right)^{\!2} = 2^2 = \mathbf{4\text{ pieces}}$}%
+  }%
+  \only<2>{%
+    {\normalsize \textbf{\color{PrimaryColor}Cube ($D = 3$)} \quad with scale factor $r = \frac{1}{2}$:\quad
+    $N = \left(\frac{1}{1/2}\right)^{\!3} = 2^3 = \mathbf{8\text{ pieces}}$}%
+  }%
+
+  \vspace{0.3cm}
+  \only<1>{%
+    \begin{center}
+      \begin{tikzpicture}[scale=0.85]
+        % ── Left: Original Square ──
+        \draw[ObjectColor, line width=1.5pt, fill=ObjectColor!18]
+          (-4.2, -1.0) rectangle ++(2.0, 2.0);
+        \node[font=\footnotesize\bfseries, PrimaryColor, below]
+          at (-3.2, -1.25) {Original Square};
+
+        % ── Center: Transition Arrow ──
+        \draw[-{Stealth[scale=1.2]}, line width=2pt, AccentColor]
+          (-1.4, 0) -- (-0.1, 0);
+        \node[font=\small\bfseries, above=2pt, AccentColor]
+          at (-0.75, 0.15) {scale $\times\frac{1}{2}$};
+
+        % ── Right: 4 Separated Squares ──
+        \foreach \i in {0, 1} {
+          \foreach \j in {0, 1} {
+            \draw[ObjectColor, line width=1.2pt, fill=ObjectColor!18]
+              (0.8 + \i*1.25, -1.075 + \j*1.25) rectangle ++(0.9, 0.9);
+          }
+        }
+        \node[font=\footnotesize\bfseries, PrimaryColor, below]
+          at (1.875, -1.25) {\textbf{4} separated pieces};
+
+        % ── Result Badge ──
+        \node[font=\normalsize\bfseries, PrimaryColor, right]
+          at (3.6, 0) {$N = 2^2 = \mathbf{4}$};
+      \end{tikzpicture}
+    \end{center}
+  }%
+  \only<2>{%
+    \begin{center}
+      \begin{tikzpicture}[scale=0.80]
+        % ── Left: Original Cube ──
+        \filldraw[draw=ObjectColor, line width=1.5pt, fill=ObjectColor!30]
+          (-4.2, 0.9) -- ++(0.65, 0.65) -- ++(1.8, 0) -- ++(-0.65, -0.65) -- cycle;
+        \filldraw[draw=ObjectColor, line width=1.5pt, fill=ObjectColor!20]
+          (-2.4, -0.9) -- ++(0.65, 0.65) -- ++(0, 1.8) -- ++(-0.65, -0.65) -- cycle;
+        \filldraw[draw=ObjectColor, line width=1.5pt, fill=ObjectColor!14]
+          (-4.2, -0.9) rectangle ++(1.8, 1.8);
+        \node[font=\footnotesize\bfseries, PrimaryColor, below]
+          at (-2.95, -1.25) {Original Cube};
+
+        % ── Center: Transition Arrow ──
+        \draw[-{Stealth[scale=1.2]}, line width=2pt, AccentColor]
+          (-1.4, 0.1) -- (-0.1, 0.1);
+        \node[font=\small\bfseries, above=2pt, AccentColor]
+          at (-0.75, 0.25) {scale $\times\frac{1}{2}$};
+
+        % ── Right: 8 Separated Small Cubes ──
+        % Back layer (Z = 1, offset by (0.85, 0.85))
+        \foreach \i in {0, 1} {
+          \foreach \j in {0, 1} {
+            \begin{scope}[shift={(0.6 + 0.85 + \i*1.30, -1.0 + 0.85 + \j*1.30)}]
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!30]
+                (0, 0.75) -- ++(0.35, 0.35) -- ++(0.75, 0) -- ++(-0.35, -0.35) -- cycle;
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!20]
+                (0.75, 0) -- ++(0.35, 0.35) -- ++(0, 0.75) -- ++(-0.35, -0.35) -- cycle;
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!14]
+                (0, 0) rectangle ++(0.75, 0.75);
+            \end{scope}
+          }
+        }
+
+        % Front layer (Z = 0)
+        \foreach \i in {0, 1} {
+          \foreach \j in {0, 1} {
+            \begin{scope}[shift={(0.6 + \i*1.30, -1.0 + \j*1.30)}]
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!30]
+                (0, 0.75) -- ++(0.35, 0.35) -- ++(0.75, 0) -- ++(-0.35, -0.35) -- cycle;
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!20]
+                (0.75, 0) -- ++(0.35, 0.35) -- ++(0, 0.75) -- ++(-0.35, -0.35) -- cycle;
+              \filldraw[draw=ObjectColor, line width=1pt, fill=ObjectColor!14]
+                (0, 0) rectangle ++(0.75, 0.75);
+            \end{scope}
+          }
+        }
+
+        \node[font=\footnotesize\bfseries, PrimaryColor, below]
+          at (2.3, -1.25) {\textbf{8} separated small cubes};
+
+        % ── Result Badge ──
+        \node[font=\normalsize\bfseries, PrimaryColor, right]
+          at (4.3, 0.1) {$N = 2^3 = \mathbf{8}$};
+      \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.15cm}
+    \centering\small
+    \textit{Can we use this same rule to find the dimension of a \highlight{fractal}?}
+  }%
+\end{frame}
+
+% ---------------------------------------------------------------
+% S2 Frame 6: Dimension of the Sierpinski Triangle (4 overlays)
+% ---------------------------------------------------------------
+\begin{frame}{Dimension of the Sierpinski Triangle}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}
+      \small
+      \only<1>{
+        Let's apply the self-similarity rule to the
+        \highlight{Sierpinski Triangle}.
+
+        \vspace{0.3cm}
+        \begin{conceptbox}{Step 1}
+          Scale the Sierpinski Triangle by $\frac{1}{2}$.
+        \end{conceptbox}
+      }
+      \only<2>{
+        \begin{conceptbox}{Step 2 --- Self-Similar Pieces}
+          We get exactly \highlight{3} self-similar copies
+          of the original triangle.
+
+          \vspace{0.2cm}
+          Each smaller triangle is a perfect replica,
+          scaled by $r = \frac{1}{2}$.
+        \end{conceptbox}
+      }
+      \only<3>{
+        \begin{mathbox}{Step 3 --- The Equation}
+          Using $N = \left(\frac{1}{r}\right)^D$:
+          \begin{align*}
+            3 &= \left(\frac{1}{1/2}\right)^{\!D} \\[6pt]
+            3 &= 2^D
+          \end{align*}
+        \end{mathbox}
+      }
+      \only<4>{
+        \begin{mathbox}{Step 4 --- Solving for $D$}
+          \begin{align*}
+            2^D &= 3 \\[4pt]
+            D\,\log 2 &= \log 3 \\[4pt]
+            D &= \frac{\log 3}{\log 2}
+          \end{align*}
+          \begin{center}
+            {\fontsize{22}{28}\selectfont
+              $D \approx \highlight{1.585}$}
+          \end{center}
+        \end{mathbox}
+
+        \vspace{0.1cm}
+        \highlight{Not an integer!} --- strictly between
+        1D (line) and 2D (surface).
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \begin{tikzpicture}[scale=0.85]
+          \only<1>{
+            \node at (0,0) {
+              \includegraphics[width=0.85\textwidth]
+                {images/sierpinski/5.png}
+            };
+            \draw[-{Stealth}, very thick, AccentColor]
+              (0,-1.8) -- (0,-2.5);
+            \node[font=\small, AccentColor, right]
+              at (0.1,-2.15) {scale by $\frac{1}{2}$};
+          }
+          \only<2-3>{
+            % Three self-similar copies
+            \node at (0,1.2) {
+              \includegraphics[width=0.4\textwidth]
+                {images/sierpinski/4.png}
+            };
+            \node at (-1,-0.6) {
+              \includegraphics[width=0.4\textwidth]
+                {images/sierpinski/4.png}
+            };
+            \node at (1,-0.6) {
+              \includegraphics[width=0.4\textwidth]
+                {images/sierpinski/4.png}
+            };
+            \node[font=\Large\bfseries, PrimaryColor]
+              at (0,-2) {3 copies};
+          }
+          \only<4>{
+            \node at (0,0.5) {
+              \includegraphics[width=0.7\textwidth]
+                {images/sierpinski/5.png}
+            };
+            \node[rounded corners=4pt, draw=PrimaryColor,
+              fill=PrimaryColor!12, inner sep=6pt,
+              font=\Large\bfseries, text=PrimaryColor]
+              at (0,-2) {$D\approx1.585$};
+          }
+        \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+% S2 Frame 7: Similarly — Koch Curve (2 overlays)
+% ---------------------------------------------------------------
+\begin{frame}{Similarly: The Koch Curve}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}
+      \small
+      \only<1>{
+        The \highlight{Koch Curve} can be divided into
+        \highlight{4} self-similar pieces, each scaled by
+        $r = \frac{1}{3}$.
+
+        \vspace{0.3cm}
+        \begin{conceptbox}{Setup}
+          \begin{itemize}
+            \item Scale factor: $r = \frac{1}{3}$
+            \item Self-similar pieces: $N = 4$
+          \end{itemize}
+        \end{conceptbox}
+      }
+      \only<2>{
+        \begin{mathbox}{Koch Dimension}
+          \begin{align*}
+            N &= \left(\frac{1}{r}\right)^{\!D} \\[4pt]
+            4 &= 3^D \\[4pt]
+            D &= \frac{\log 4}{\log 3}
+          \end{align*}
+          \begin{center}
+            {\fontsize{22}{28}\selectfont
+              $D \approx \highlight{1.262}$}
+          \end{center}
+        \end{mathbox}
+
+        \vspace{0.2cm}
+        Also \highlight{non-integer} --- between a line (1D)
+        and a surface (2D), but closer to a line than
+        the Sierpinski Triangle.
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \begin{tikzpicture}
+          \only<1>{
+            \node at (0,1.5) {
+              \includegraphics[width=0.85\textwidth]
+                {images/koch/5.png}
+            };
+            \draw[-{Stealth}, very thick, AccentColor]
+              (0,0.3) -- (0,-0.4);
+            \node[font=\small, AccentColor, right]
+              at (0.1,-0.05) {$\times\frac{1}{3}$};
+            % 4 smaller copies arranged in Koch shape
+            \node at (-1.5,-1.5) {
+              \includegraphics[width=0.22\textwidth]
+                {images/koch/4.png}
+            };
+            \node[rotate=60] at (-0.45,-1.2) {
+              \includegraphics[width=0.22\textwidth]
+                {images/koch/4.png}
+            };
+            \node[rotate=-60] at (0.45,-1.2) {
+              \includegraphics[width=0.22\textwidth]
+                {images/koch/4.png}
+            };
+            \node at (1.5,-1.5) {
+              \includegraphics[width=0.22\textwidth]
+                {images/koch/4.png}
+            };
+            \node[font=\Large\bfseries, PrimaryColor]
+              at (0,-2.8) {4 copies};
+          }
+          \only<2>{
+            \node at (0,0.5) {
+              \includegraphics[width=0.85\textwidth]
+                {images/koch/5.png}
+            };
+            \node[rounded corners=4pt, draw=PrimaryColor,
+              fill=PrimaryColor!12, inner sep=6pt,
+              font=\Large\bfseries, text=PrimaryColor]
+              at (0,-1.5) {$D\approx1.262$};
+          }
+        \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+% S2 Frame 8: The General Theory — Box-Counting Dimension
+% ---------------------------------------------------------------
+\begin{frame}{The General Theory: Box-Counting Dimension}
+  \small
+  The \highlight{Self-Similarity Dimension} works beautifully for
+  self-similar fractals. But what about more complex shapes?
+
+  \vspace{0.3cm}
+  \begin{mathbox}{Box-Counting Dimension}
+    The fractal dimension $D$ is defined as:
+    $$D = \lim_{\varepsilon \to 0}
+      \frac{\log N(\varepsilon)}{\log(1/\varepsilon)}$$
+    where $N(\varepsilon)$ is the number of boxes of side length
+    $\varepsilon$ needed to cover the fractal.
+  \end{mathbox}
+
+  \vspace{0.3cm}
+  \pause
+  \begin{conceptbox}{Intuition}
+    \begin{itemize}
+      \item Cover the fractal with a grid of boxes of size
+        $\varepsilon$
+      \item Count how many boxes $N(\varepsilon)$ the fractal
+        touches
+      \item Shrink $\varepsilon \to 0$ and observe how
+        $N(\varepsilon)$ grows
+      \item The \highlight{rate of growth} tells us the
+        dimension
+    \end{itemize}
+  \end{conceptbox}
+
+  \vspace{0.2cm}
+  \begin{center}
+    {\footnotesize\color{DarkGray} For a deeper dive, see
+    \href{https://www.youtube.com/watch?v=gB9n2gHsHN4}%
+    {\textcolor{AccentColor}{3Blue1Brown:
+    Fractals are typically not self-similar}}}
+  \end{center}
+\end{frame}
+
+% ---------------------------------------------------------------
+% S2 Frame 9: Handoff to Speaker 3
+% ---------------------------------------------------------------
+\begin{frame}{Handoff to Speaker 3}
+  \small
+  We've now uncovered a remarkable property of fractals:
+
+  \begin{itemize}
+    \item They have \highlight{non-integer dimensions} ---
+      genuinely ``between'' the familiar 1D, 2D, 3D.
+    \item The Sierpinski Triangle lives in dimension
+      $D\approx 1.585$.
+    \item The Koch Curve lives in dimension
+      $D\approx 1.262$.
+    \item The \highlight{box-counting dimension} generalises
+      this to \emph{any} shape.
+  \end{itemize}
+
+  \pause
+  \vspace{0.3cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.8\textwidth] {
+        \centering
+        We now know \emph{what} fractals are and how to
+        measure their complexity. \\[4pt]
+        But \highlight{where do we see them}? And
+        \highlight{how are they used} in computer science?
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \vspace{0.2cm}
+  \pause
+  That's exactly where Speaker~3 takes us ---
+  fractals in nature, art, and computation.
+\end{frame}
+
+\end{document}

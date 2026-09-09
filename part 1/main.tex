@@ -1,0 +1,360 @@
+% To merge into the real deck: replace the next line with
+% \input{../../preamble.tex}  (the teacher's actual preamble)
+\input{preamble.tex}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+================================================================
+PART 1 — HISTORY (3 frames): the crisis, the pre-Mandelbrot
+"monsters", and Mandelbrot's reframing.
+================================================================
+\section{History}
+
+% ---------------------------------------------------------------
+% Frame 1 of 3: The crisis — an assumption calculus took for granted
+% ---------------------------------------------------------------
+\begin{frame}{A Crisis in 19th-Century Mathematics}
+  \small
+  For centuries, calculus rested on an assumption that felt obvious:
+
+  \begin{conceptbox}{The Assumption}
+    Any continuous curve is \highlight{smooth almost everywhere} —
+    zoom in far enough on any point, and the curve should straighten
+    out into a well-defined tangent line.
+  \end{conceptbox}
+
+  \pause
+  \vspace{0.3cm}
+  This wasn't just intuition — it was treated as close to self-evident.
+  \highlight{Continuity} was assumed to imply \highlight{differentiability},
+  almost everywhere, almost always.
+
+  \pause
+  \vspace{0.3cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.75\textwidth] {
+        \centering
+        In 1872, \highlight{Karl Weierstrass} broke this assumption —
+        on purpose.
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \pause
+  \vspace{0.2cm}
+  He constructed a function that is \highlight{continuous everywhere},
+  yet \highlight{differentiable nowhere}: infinitely jagged, at every
+  single scale, with no tangent line anywhere at all.
+\end{frame}
+
+% ---------------------------------------------------------------
+% Frame 2 of 3: The "monster" era — mathematicians before Mandelbrot
+% ---------------------------------------------------------------
+\begin{frame}{Mathematical "Monsters"}
+  \small
+  Weierstrass's function was treated as a \highlight{pathological
+  monster} — proof that pictures and intuition could not be trusted,
+  and that analysis needed rigorous proof instead.
+
+  \vspace{0.2cm}
+  \pause
+  This set off a chain reaction. Mathematicians began deliberately
+  constructing stranger and stranger shapes, to probe exactly where
+  classical geometry broke down:
+
+  \begin{itemize}
+    \item<3-> \highlight{Georg Cantor} (1883) — the Cantor set: an
+      infinite set of points with zero total length.
+    \item<4-> \highlight{Helge von Koch} (1904) — a geometric,
+      drawable curve that is nowhere smooth: the \highlight{Koch curve}.
+    \item<5-> \highlight{Wac\l{}aw Sierpi\'nski} — self-similar shapes
+      like the \highlight{Sierpi\'nski triangle}.
+    \item<6-> \highlight{Felix Hausdorff} (1918) — gave these shapes a
+      number: a \highlight{fractional dimension}, between the familiar
+      integer dimensions.
+    \item<7-> \highlight{Gaston Julia \& Pierre Fatou} ($\sim$1918) —
+      studied iterated functions in the complex plane, without any way
+      to actually see what they looked like.
+  \end{itemize}
+
+  \pause[8]
+  \vspace{0.2cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.8\textwidth] {
+        \centering
+        For nearly a century, these were considered
+        \highlight{beautiful but useless} — curiosities built to
+        stress-test the foundations of mathematics, not to describe
+        anything real.
+      };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+% ---------------------------------------------------------------
+% Frame 3 of 3: Mandelbrot's question and reframing
+% ---------------------------------------------------------------
+\begin{frame}{Mandelbrot's Question}
+  \small
+  In the 1960s, working at IBM, \highlight{Benoit Mandelbrot} asked a
+  deceptively simple question:
+
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.8\textwidth] {
+        \centering
+        \textit{``How long is the coast of Britain?''}
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \pause
+  \vspace{0.2cm}
+  The honest answer: \highlight{it depends on your ruler}. Measure
+  with a 100~km ruler, get one length. Use a 1~km ruler, and the
+  measured length grows — every bay and inlet you'd smoothed over
+  now counts. The length never converges to a single number.
+
+  \pause
+  \vspace{0.2cm}
+  Mandelbrot's insight: this isn't a flaw in the coastline — it's a
+  sign that classical length and area are \highlight{the wrong tools}
+  for something like this. What a coastline actually needs is exactly
+  the "useless" mathematics of Cantor, Koch, and Hausdorff.
+
+  \pause
+  \vspace{0.2cm}
+  \begin{itemize}
+    \item He had a real problem no one had connected to these ideas.
+    \item He had \highlight{computers} — something Cantor, Koch, and
+      Julia never had — letting him \emph{see} these shapes for the
+      first time.
+    \item He united a century of scattered ``monsters'' under one
+      name: \highlight{fractal}, from the Latin \textit{fractus}
+      (``broken'').
+  \end{itemize}
+\end{frame}
+
+% ================================================================
+% PART 2 — DEFINITION + SIERPINSKI CONSTRUCTION WALKTHROUGH
+% ================================================================
+\section{Definition}
+
+\begin{frame}{What are Fractals?}
+  \begin{conceptbox}{Definition}
+    A \highlight{fractal} is a geometric shape containing detailed
+    structure at arbitrarily small scales, usually having a
+    \highlight{fractal dimension} strictly exceeding the
+    \highlight{topological dimension}.
+  \end{conceptbox}
+
+  \vspace{0.1cm}
+
+  \textbf{Key Characteristics:}
+  \begin{itemize}
+    \item \highlight{Scale invariance}: Details at every level of magnification
+    \item \highlight{Fractal dimension}: More than the \textit{conventional} dimension
+    \item \highlight{Infinite complexity}: Generated by simple, recursive rules
+      \begin{itemize}
+        \item Like the infinite complexities of nature
+      \end{itemize}
+  \end{itemize}
+
+  \vspace{0.1cm}
+
+  \pause
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.7\textwidth] {
+        \centering
+        \textit{"Clouds are not spheres, mountains are not cones, coastlines are not circles..."} \\
+        \textbf{--- Benoit Mandelbrot}
+      };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\section{Some Fractals}
+
+\begin{frame}{The Sierpinski Triangle}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \small
+      \only<1-4>{
+        Let's construct the Sierpinski Triangle:
+        \begin{conceptbox}{Construction Process}
+          \footnotesize
+          \begin{enumerate}
+            \item Start with an equilateral triangle
+            \item<2-> Remove the central triangle (triangle connecting midpoints of the sides)
+            \item<3-> Repeat for each triangle
+            \item<4-> After infinite iterations, we get the Sierpinski Triangle
+          \end{enumerate}
+        \end{conceptbox}
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \begin{figure}
+          \foreach \t/\i in {1/0,2/1,3/2,4/3} {
+            \only<\t>{
+              \includegraphics[width=\textwidth]{images/sierpinski/\i.png}
+              \caption*{Iteration \i}
+            }
+          }
+        \end{figure}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ================================================================
+% PART 3 — SIERPINSKI AREA & PERIMETER CALCULATION
+% ================================================================
+\section{Area \& Perimeter}
+
+\begin{frame}{The Sierpinski Triangle: Area}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \small
+      Now let's find the area of triangle(s):
+      \begin{mathbox}{Area Calculation}
+        \footnotesize
+        \begin{align*}
+          \only<1->{
+            A_0 &= \frac{1}{2}\cdot \sin(60^\circ) \cdot a^2 = \frac{\sqrt{3}}{4} a^2 \\
+          }
+          \only<2>{
+            A_1 &= A_0 - \frac{1}{2}\cdot \sin(60^\circ) \cdot \left(\frac{a}{2}\right)^2 \\
+            &= A_0 - \frac{\sqrt{3}}{16} a^2 = A_0 - \frac{1}{4} A_0 \\
+            &= \frac{3}{4} A_0
+          }
+          \only<3->{
+            A_1  &= \left(1-\frac{1}{4}\right) A_0 =  \frac{3}{4} A_0 \\
+            A_2 &= \left(1-\frac{1}{4}\right) A_1 = \left(\frac{3}{4}\right)^2 A_0 \\
+          }
+          \only<4->{
+            \hdots \\
+            A_n &= \left(1-\frac{1}{4}\right)^n A_0 = \left(\frac{3}{4}\right)^n A_0 \\
+            \lim_{n \to \infty} A_n &= 0
+          }
+        \end{align*}
+      \end{mathbox}
+      \only<2-3>{
+        We cut out one fourth of the area at each step. So, naturally
+        area is reduced by $\frac{3}{4}$ at each step.
+      }
+      \only<4->{
+        \highlight{The area of the Sierpinski Triangle is zero even
+        though it is a 2D shape.}
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \begin{figure}
+          \foreach \t/\i in {1/0, 2/1, 3/2, 4/3} {
+            \only<\t>{
+              \includegraphics[width=\textwidth]{images/sierpinski/\i.png}
+              \caption*{Iteration \i}
+            }
+          }
+        \end{figure}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The Sierpinski Triangle: Perimeter}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \small
+      Now let's find the perimeter:
+      \begin{mathbox}{Perimeter Calculation}
+        \footnotesize
+        \begin{align*}
+          \only<1->{
+            P_0 &= 3a \\
+          }
+          \only<2->{
+            P_1 &= P_0 + 3\cdot\frac{a}{2} = \frac{9}{2} a = \frac{3}{2} P_0 \\
+          }
+          \only<3->{
+            P_2 &= P_1 + 3\cdot3\cdot\frac{a}{4} = P_1 + \frac{1}{2} P_1 = \frac{3}{2} P_1 \\
+          }
+          \only<4->{
+            \hdots \\
+            P_n &= \frac{3}{2} P_{n-1} = \left(\frac{3}{2}\right)^n P_0 \\
+            \lim_{n \to \infty} P_n &= \infty
+          }
+        \end{align*}
+      \end{mathbox}
+      \only<2-3>{
+        We add half of the previous perimeter at each step.
+        This is because we add the same number of triangles as the
+        last step, but each triangle is half the size of the
+        previous one.
+
+        As a result, the perimeter grows by a factor of $\frac{3}{2}$
+        at each step.
+      }
+      \only<4->{
+        \highlight{The Sierpinski Triangle has infinite perimeter but
+        zero area.}
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \begin{figure}
+          \foreach \t/\i in {1/0, 2/1, 3/2, 4/3} {
+            \only<\t>{
+              \includegraphics[width=\textwidth]{images/sierpinski/\i.png}
+              \caption*{Iteration \i}
+            }
+          }
+        \end{figure}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ================================================================
+% Handoff from Speaker 1
+% ================================================================
+\begin{frame}{Handoff to Speaker 2}
+  \small
+  We've now seen something strange, and precise:
+
+  \begin{itemize}
+    \item A \highlight{2D shape} (Sierpinski Triangle) with
+      \highlight{zero area}.
+    \item A shape built from a rule so simple a child could apply it
+      by hand.
+    \item No matter how far we zoom in, there's always more detail.
+  \end{itemize}
+
+  \pause
+  \vspace{0.3cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.8\textwidth] {
+        \centering
+        If it isn't a line, and it isn't a surface --- what
+        \highlight{is} its true dimension?
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \vspace{0.2cm}
+  \pause
+  That number is exactly what Hausdorff was reaching for in 1918 ---
+  and it's where Speaker~2 picks up the story.
+\end{frame}
+
+
+\end{document}
