@@ -1,0 +1,399 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{PrimaryColor}{HTML}{213448}
+\definecolor{SecondaryColor}{HTML}{547792}
+\definecolor{AccentColor}{HTML}{649CA5}
+\definecolor{RayColor}{HTML}{E69650}
+\definecolor{DarkGray}{HTML}{555555}
+
+\setstretch{1.25}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{DarkGray}Fractals --- Speaker Scripts}
+\fancyhead[R]{\small\color{DarkGray}CSE 200}
+\fancyfoot[C]{\small\color{DarkGray}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\Large\bfseries\color{PrimaryColor}}{}{0pt}{}
+\titleformat{\subsection}{\large\bfseries\color{SecondaryColor}}{}{0pt}{}
+
+% click cue -- tells the speaker to advance the slide
+\newcommand{\cue}{\textcolor{RayColor}{\textsf{\footnotesize[CLICK]}}\hspace{0.3em}}
+% a word to lean on while speaking
+\newcommand{\stress}[1]{\textbf{#1}}
+
+\newtcolorbox{speakerbox}[1]{
+  colback=PrimaryColor!6, colframe=PrimaryColor, arc=2mm,
+  boxrule=1pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  title={\bfseries #1}, fonttitle=\normalsize}
+
+\newtcolorbox{notebox}[1]{
+  colback=AccentColor!8, colframe=AccentColor, arc=2mm,
+  boxrule=0.8pt, left=8pt, right=8pt, top=5pt, bottom=5pt,
+  title={\bfseries #1}, fonttitle=\small}
+
+\begin{document}
+
+% ================================================================
+\begin{center}
+  {\Huge\bfseries\color{PrimaryColor} Fractals}\\[6pt]
+  {\large\color{SecondaryColor} Infinite Detail from Simple Rules}\\[14pt]
+  {\Large\bfseries Speaker Scripts}\\[6pt]
+  {\color{DarkGray} Three speakers $\cdot$ three minutes each $\cdot$ CSE 200 Presentation}
+\end{center}
+
+\vspace{0.6cm}
+
+\section*{How to use this}
+
+Each script below is written to be \stress{spoken, not read silently}. The
+sentences are short on purpose --- short sentences are much easier to deliver
+when you are nervous.
+
+\begin{itemize}[leftmargin=1.2em, itemsep=3pt]
+  \item \cue means \stress{advance the slide}. Press the key, \emph{then} keep talking.
+  \item \stress{Bold words} are the ones to lean on. Slow down slightly when you say them.
+  \item Every script is about 390--410 words. At a calm speaking pace
+        (\raisebox{0pt}{$\sim$}130 words a minute) that is just about 3 minutes.
+        \stress{Time yourself once out loud} --- reading in your head is far faster
+        and will fool you.
+  \item You do not have to memorise this word for word. Learn the \stress{order of
+        the ideas}. If you say them in your own words, that is better, not worse.
+\end{itemize}
+
+\begin{notebox}{The single most useful tip}
+  When you finish a sentence, \stress{stop}. Do not fill the gap with ``um'' or
+  ``so''. A one-second silence feels enormous to you and completely normal to the
+  audience. It is the fastest way to sound like you know what you are doing.
+\end{notebox}
+
+\subsection*{Timing at a glance}
+
+\begin{center}
+\begin{tabular}{@{}p{2.4cm}p{5.6cm}p{2.0cm}p{4.4cm}@{}}
+\hline
+\textbf{Speaker} & \textbf{Covers} & \textbf{Time} & \textbf{Your one job} \\
+\hline
+Speaker 1 & History, definition, Sierpinski triangle & 3 min &
+  Show that normal measurement \emph{breaks}. \\[4pt]
+Speaker 2 & Fractal dimension & 3 min &
+  Give the broken thing a \emph{number}. \\[4pt]
+Speaker 3 & Fractals in the real world & 3 min &
+  Show where that number \emph{shows up}. \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Names you will have to say out loud}
+
+\begin{center}
+\begin{tabular}{@{}p{5.2cm}p{4.6cm}@{}}
+\hline
+\textbf{Name} & \textbf{Say it as} \\
+\hline
+Karl Weierstrass      & VY-er-shtrass \\
+Georg Cantor          & GAY-org CAN-tor \\
+Helge von Koch        & HEL-ga fon KOKH \\
+Wac\l{}aw Sierpi\'nski & VAT-swaf sher-PIN-skee \\
+Felix Hausdorff       & HOWS-dorf \\
+Gaston Julia          & gas-TOHN ZHOO-lya \\
+Pierre Fatou          & pee-AIR fa-TOO \\
+Benoit Mandelbrot     & ben-WAH MAN-del-brot \\
+Michael Barnsley      & BARNZ-lee \\
+Romanesco             & roh-ma-NESS-koh \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{notebox}{If you stumble on a name}
+  Say it confidently and move on. Nobody in the room will correct you, and
+  stopping to fix it costs you five seconds and your rhythm.
+\end{notebox}
+
+\newpage
+% ================================================================
+\section*{Speaker 1 --- The Surprise}
+
+\begin{speakerbox}{Your goal in one sentence}
+  Convince the audience that ordinary geometry \stress{completely breaks} on
+  these shapes --- so that Speaker 2 has a problem worth solving.\\[4pt]
+  {\small\color{DarkGray} Slides: A Crisis in 19th-Century Mathematics $\rightarrow$
+  Handoff to Speaker 2 \quad$\cdot$\quad about 400 words $\approx$ 3 min}
+\end{speakerbox}
+
+\vspace{0.3cm}
+
+Think about zooming in on a curve. Any curve --- a circle, a parabola. Zoom in
+far enough and it straightens out --- it looks like a straight line. For about two
+hundred years, all of calculus quietly assumed this is \stress{always} true.
+
+\cue In 1872, Karl Weierstrass broke that assumption --- on purpose. He built a
+function that is \stress{continuous everywhere}, but \stress{differentiable
+nowhere}. It is infinitely jagged --- zoom in as far as you like, it never
+straightens out. No tangent line anywhere.
+
+\cue Mathematicians called these shapes \stress{monsters}. But once the door was
+open, more came. Cantor built a set of infinitely many points with zero total
+length. Von Koch drew a curve that is nowhere smooth. Sierpi\'nski made shapes
+built out of smaller copies of themselves. And Hausdorff gave these shapes a
+\stress{number} --- a fractional dimension, in between the whole numbers we know.
+
+For almost a hundred years, all of this was considered \stress{beautiful but
+useless}.
+
+\cue Then, in the 1960s, Benoit Mandelbrot --- working at IBM --- asked a very
+simple question. \stress{How long is the coast of Britain?}
+
+The honest answer is: it depends on your ruler. Measure with a hundred-kilometre
+ruler, you get one number. Measure with a one-kilometre ruler, and the coast gets
+\stress{longer} --- every little bay now counts. The length never settles down.
+
+Mandelbrot's insight was that this is not a flaw in the coastline. It means
+\stress{length is the wrong tool}. And the right tool was exactly that ``useless''
+mathematics. He also had something Cantor and Koch never had --- \stress{computers}
+--- so he could finally \emph{see} these shapes. He gave them one name:
+\stress{fractals}, from the Latin \emph{fractus}, meaning ``broken''.
+
+\cue So what is a fractal? Formally: a shape with detailed structure at
+arbitrarily small scales, whose fractal dimension is greater than its topological
+dimension. In plain words --- \stress{it has detail at every zoom level, and it is
+built by repeating one simple rule}.
+
+\cue Here is the classic example. Take a triangle. Remove the middle one.
+Repeat --- forever. That is the Sierpi\'nski triangle.
+
+\cue Now watch the numbers. Every step keeps three quarters of the area. So after
+$n$ steps the area is $(3/4)^n$ --- and that goes to \stress{zero}.
+
+\cue But the perimeter gets multiplied by three-halves at every step. That goes to
+\stress{infinity}.
+
+\cue So we have a two-dimensional shape with \stress{zero area} and
+\stress{infinite perimeter}. Our normal tools have completely broken down.
+
+Over to Speaker 2 --- if area and perimeter are useless here, what number
+\emph{do} we use?
+
+\begin{notebox}{Notes for delivery}
+  \begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=2pt]
+    \item You have the most slides of the three. \stress{Do not linger} on the
+      list of names --- say them as one quick sweep and move on.
+    \item The area and perimeter slides have the maths already written. Do not read
+      the algebra out loud. Just say the result: shrinks to zero, grows to infinity.
+    \item \stress{If you blank out}, this one sentence carries your whole section:
+      ``There are shapes with zero area but infinite perimeter, and normal geometry
+      cannot handle them.''
+  \end{itemize}
+\end{notebox}
+
+\newpage
+% ================================================================
+\section*{Speaker 2 --- The Number}
+
+\begin{speakerbox}{Your goal in one sentence}
+  Take the thing Speaker 1 broke, and \stress{measure it} --- turn ``rough'' from a
+  word into a number.\\[4pt]
+  {\small\color{DarkGray} Slides: Fractal Dimension section $\rightarrow$
+  Handoff to Speaker 3 \quad$\cdot$\quad about 390 words $\approx$ 3 min}
+\end{speakerbox}
+
+\vspace{0.3cm}
+
+So we are stuck. Area says zero. Perimeter says infinity. Neither one tells us
+anything useful. We need a different kind of measurement --- and the way in is to
+rethink what \stress{dimension} actually means.
+
+\cue Forget the usual definition for a moment. Let us define dimension by what
+happens when you \stress{scale} something.
+
+Take a line, and shrink it by half. How many of those copies fit in the original?
+\stress{Two}.
+
+\cue Take a square, and shrink each side by half. \stress{Four} copies fit.
+
+\cue Take a cube, shrink it by half. \stress{Eight} copies.
+
+Two, four, eight. That is $2^1$, $2^2$, $2^3$. Look at the exponent --- one, two,
+three. \stress{The exponent is the dimension.}
+
+\cue So in general: if we scale by a factor $r$, the number of self-similar pieces
+is $N = (1/r)^D$. And if we solve that for $D$, we get
+$D = \log N / \log(1/r)$.
+
+Let us sanity-check it. A line: $\log 2 / \log 2 = 1$. A square:
+$\log 4 / \log 2 = 2$. A cube: $\log 8 / \log 2 = 3$. It agrees with everything we
+already believe. Good --- the formula is not doing anything strange.
+
+\cue Now let us point it at the Sierpi\'nski triangle. Shrink it by half. How many
+copies do we get? Not four --- \stress{three}. The middle one is missing.
+
+So $D = \log 3 / \log 2$, which is about \stress{1.585}.
+
+That is not a whole number. The Sierpi\'nski triangle is \stress{more than a line,
+but less than a solid surface}. And that is exactly why area and perimeter failed
+--- we were measuring a 1.585-dimensional object with one-dimensional and
+two-dimensional tools.
+
+\cue The same method works on the Koch curve. Scale it by one third, and you get
+four copies. So $D = \log 4 / \log 3$, about \stress{1.262}.
+
+\cue There is one catch. That formula needs \stress{perfect} self-similarity, and
+a real coastline is not perfectly self-similar. So we use the general version: the
+\stress{box-counting dimension}. Cover the shape with a grid of boxes of size
+$\varepsilon$, count how many boxes contain part of the shape, then let
+$\varepsilon$ shrink. The dimension is the limit of
+$\log N / \log(1/\varepsilon)$.
+
+Same idea --- but this one works on anything. Even a photograph.
+
+\cue So here is what we have gained. \stress{Roughness is no longer just a word.
+It is a number.} We can now say that one coastline is rougher than another, and
+say \emph{by how much}.
+
+Over to Speaker 3 --- where does this number actually show up?
+
+\begin{notebox}{Notes for delivery}
+  \begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=2pt]
+    \item The line-square-cube build-up is the heart of your section. \stress{Go
+      slowly there.} If they follow two, four, eight, they will follow everything
+      after it.
+    \item Say ``log three over log two'', not ``logarithm of three divided by''.
+      Shorter is clearer out loud.
+    \item You do not need to explain what a logarithm is. Nobody will ask.
+    \item \stress{If you blank out}: ``Dimension is just the exponent that tells you
+      how many copies appear when you shrink a shape --- and for fractals that
+      exponent is not a whole number.''
+  \end{itemize}
+\end{notebox}
+
+\newpage
+% ================================================================
+\section*{Speaker 3 --- The World}
+
+\begin{speakerbox}{Your goal in one sentence}
+  Show that this is not a maths curiosity --- it is \stress{in nature, in your body,
+  and in the software people use every day}.\\[4pt]
+  {\small\color{DarkGray} Slides: Fractals in the Real World $\rightarrow$
+  Conclusion \quad$\cdot$\quad about 410 words $\approx$ 3 min}
+\end{speakerbox}
+
+\vspace{0.3cm}
+
+We know what a fractal is, and how to measure one. So where is all of this
+actually hiding?
+
+\cue Everywhere in nature. Romanesco broccoli. A snowflake. An aloe plant. A pine
+cone. In each one, \stress{a small piece looks like the whole thing}. And on the
+right is a tree that nobody designed --- a computer grew it by repeating one rule.
+
+\cue Here is that idea at its cleanest. Start with a square. Stand a
+\stress{right triangle} on its top edge, and grow a new square on each leg --- so
+Pythagoras' theorem sits at every joint. Then repeat. At forty-five degrees the
+two branches match exactly, and you get a symmetric tree.
+\cue Now tilt that triangle. The branches stop matching --- and the tree
+\stress{leans}, the way a real tree grows toward the light. We changed
+\stress{one number}.
+
+\cue Now back to Speaker 1's coastline question --- with real map data. We walked
+rulers of different lengths along Britain's coast and plotted it on log--log axes.
+It comes out a \stress{straight line}, slope about minus 0.28 --- a dimension of
+about \stress{1.28}. Mandelbrot got 1.25. That is Speaker 2's formula, measured
+off the real world.
+
+\cue And it is inside you, too. Your lungs branch about \stress{twenty-three
+times}. That packs roughly \stress{seventy square metres} of surface into about
+five litres of chest. Your blood vessels do the same trick. And doctors now measure
+the fractal dimension of the vessels in your eye --- because when that number
+drops, it can be an \stress{early sign of disease}.
+
+\cue Now a beautiful application. This fern is drawn by \stress{four rules} ---
+each one shrinks and tilts the whole picture. Six numbers each, plus four
+probabilities: \stress{twenty-eight numbers in total}. And those twenty-eight
+numbers redraw the fern at \stress{any resolution}. Zoom in, there is always more
+leaf. That is \stress{fractal compression} --- store the rule, not the pixels.
+
+\cue Games use the same trick. Add smaller and smaller bumps at every scale, and a
+handful of numbers becomes an endless mountain range. Nobody stored that terrain.
+It was \stress{grown}.
+
+\cue One honest caveat. \stress{Real fractals stop.} A coastline looks like a
+coastline until you reach sand grains. Lungs stop at about twenty-three. Only the
+mathematical ones go on forever. A fractal is a \stress{model} of nature --- and
+every model has a range where it works.
+
+\cue So, to bring it together. Part 1 gave us the surprise. Part 2 gave us the
+number. Part 3 gave us the world. Clouds are not spheres, and mountains are not
+cones --- but \stress{roughness has a number, and simple rules make it}.
+
+Thank you.
+
+\begin{notebox}{Notes for delivery}
+  \begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=2pt]
+    \item Your section is the one the audience will enjoy most. \stress{Let them
+      look at the pictures} --- pause for a beat after each image appears.
+    \item The lungs number (70 square metres inside 5 litres) always gets a
+      reaction. Say it slowly.
+    \item You close the whole talk. After ``Thank you'', \stress{stop and stand
+      still}. Do not trail off or walk away mid-sentence.
+    \item \stress{If you blank out}: ``Nature does not store details --- it stores
+      a rule and repeats it. That is why fractals are everywhere.''
+  \end{itemize}
+\end{notebox}
+
+\newpage
+% ================================================================
+\section*{If someone asks a question}
+
+You are not expected to know everything. \stress{``That is a good question, I am
+not sure''} is a completely acceptable answer and costs you nothing. But these
+four come up often, so here are short answers.
+
+\vspace{0.2cm}
+
+\textbf{Is a fractal dimension a real dimension, like length and width?}\\
+Not in the everyday sense. It is a measure of \stress{how much detail fills space
+as you zoom in}. A shape with dimension 1.26 is rougher than a plain line but does
+not fill an area.
+
+\textbf{Are real things actually infinite fractals?}\\
+No. Real objects are fractal only over a \stress{limited range of scales} ---
+a coastline down to sand grains, lungs for about 23 branchings. Only the
+mathematical ones are infinite. We covered this on the ``Real fractals stop'' slide.
+
+\textbf{Why is the coastline dimension sometimes 1.25 and sometimes 1.28?}\\
+Because it depends on the \stress{map data and the range of ruler lengths} you use.
+Mandelbrot's 1.25 and our 1.28 come from different datasets. The point is that the
+number is consistently \stress{above 1} --- the coast is genuinely rougher than a
+line.
+
+\textbf{Is fractal compression actually used in practice?}\\
+It was developed commercially in the 1990s and works beautifully on
+self-similar images like the fern. For general photographs, JPEG and its successors
+won out because they are much faster to encode. The \stress{idea} ---
+describe the picture by the rule that makes it --- is what matters here.
+
+\vspace{0.8cm}
+
+\begin{notebox}{Before you walk in}
+  Do one full run-through out loud, all three of you, with the slides. Not
+  reading --- \stress{speaking}. It will feel awkward once and easy the second
+  time. That single rehearsal is worth more than any amount of re-reading.
+\end{notebox}
+
+\end{document}
