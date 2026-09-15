@@ -8,7 +8,7 @@ from matplotlib.collections import PolyCollection
 from matplotlib.colors import LinearSegmentedColormap
 import os
 
-PRIMARY = "#213448"; RAY = "#E69650"
+PRIMARY = "#9B4632"; RAY = "#E69650"
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "images", "part3")
 
 # ---------------------------------------------------------------- #
@@ -54,7 +54,7 @@ def draw(items, name, label, xlim, ylim, maxdepth, lw=0.25):
         edgecolors="white", linewidths=lw))
     ax.set_xlim(*xlim); ax.set_ylim(*ylim)
     ax.set_aspect("equal"); ax.axis("off")
-    ax.set_title(label, fontsize=15, color=PRIMARY, fontweight="bold")
+    ax.set_title(label, fontsize=26, color=PRIMARY, fontweight="bold")
     fig.patch.set_alpha(0)
     plt.tight_layout()
     plt.savefig(os.path.join(OUT, name), dpi=200, transparent=True)

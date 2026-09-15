@@ -179,3 +179,99 @@
   \end{scope}
   \endgroup
 }
+
+% ================================================================
+% Reference theme, rebuilt to match combined/deck.pdf
+% Rust title bar, cream ground, Adventor headings, thin footer.
+% Placed last so it overrides metropolis.
+% ================================================================
+\usepackage{tgheros}
+\usepackage{tgadventor}
+\renewcommand{\sfdefault}{qhv}                       % Heros for body copy
+\newcommand{\headfont}{\fontfamily{qag}\selectfont}  % Adventor for headings
+
+\definecolor{ThemeRust}{HTML}{9B4632}
+\definecolor{ThemeCream}{HTML}{F8F6F2}
+\definecolor{ThemeSage}{HTML}{C6CCB1}
+\definecolor{ThemeStone}{HTML}{E7E7DB}
+\definecolor{ThemeMuted}{HTML}{8B8A88}
+\definecolor{ThemeInk}{HTML}{191919}
+
+\setbeamercolor{background canvas}{bg=ThemeCream}
+\setbeamercolor{normal text}{fg=ThemeInk}
+\setbeamercolor{frametitle}{bg=ThemeRust, fg=ThemeCream}
+\setbeamercolor{footer}{bg=ThemeCream, fg=ThemeMuted}
+\setbeamercolor{alerted text}{fg=ThemeRust}
+\setbeamercolor{itemize item}{fg=ThemeRust}
+\setbeamercolor{itemize subitem}{fg=ThemeRust}
+\setbeamercolor{palette primary}{bg=ThemeRust, fg=ThemeCream}  % section pages
+
+% full-bleed rust bar across the top
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,sep=0pt]{frametitle}%
+    \vbox{%
+      \vskip0.60em
+      \hbox{\hskip0.9em%
+        \begin{minipage}{\dimexpr\paperwidth-1.8em\relax}%
+          \raggedright\headfont\bfseries\large\insertframetitle%
+        \end{minipage}}%
+      \vskip0.55em
+    }%
+  \end{beamercolorbox}%
+}
+
+% thin three-zone footer
+\setbeamertemplate{footline}{%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.40\paperwidth,ht=1.9ex,dp=1.0ex,left]{footer}%
+    \hspace*{0.9em}\tiny\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.28\paperwidth,ht=1.9ex,dp=1.0ex,center]{footer}%
+    \tiny\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.32\paperwidth,ht=1.9ex,dp=1.0ex,right]{footer}%
+    \tiny\insertframenumber\,/\,\inserttotalframenumber\hspace*{0.9em}
+  \end{beamercolorbox}}%
+  \vskip1pt
+}
+
+% full-bleed rust title page
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \fill[ThemeRust] (current page.south west) rectangle (current page.north east);
+  \end{tikzpicture}%
+  \vfill
+  \begin{flushright}
+    {\headfont\bfseries\LARGE\color{ThemeCream}\inserttitle\par}
+    \vspace{0.3em}
+    {\color{ThemeCream!85}\small\insertsubtitle\par}
+    \vspace{1.3em}
+    {\color{ThemeCream}\small\insertauthor\par}
+    \vspace{0.5em}
+    {\color{ThemeCream!80}\scriptsize\insertinstitute\par}
+    \vspace{0.8em}
+    {\color{ThemeCream!75}\scriptsize\insertdate\par}
+  \end{flushright}
+  \vfill
+}
+
+% --- Deck palette remapped onto the theme -------------------------------
+% Overrides the navy/violet set defined at the top of this file. Every TikZ
+% figure and tcolorbox references these names, so they all follow along.
+\definecolor{PrimaryColor}{HTML}{9B4632}     % rust: highlights, frames, titles
+\definecolor{SecondaryColor}{HTML}{7A5C4B}   % warm brown: secondary boxes
+\definecolor{AccentColor}{HTML}{7E8C57}      % sage: arrows, alerted text
+\definecolor{ObjectColor}{HTML}{A9745B}      % clay: solid shapes
+\definecolor{LightColor}{HTML}{D9A441}       % warm gold
+\definecolor{TextColor}{HTML}{191919}
+\definecolor{BackgroundColor}{HTML}{F8F6F2}
+\definecolor{LightGray}{HTML}{E7E7DB}
+\definecolor{DarkGray}{HTML}{6B6257}
+
+% the four fern rules -- must match COLS in part 3/figs5.py
+\definecolor{RuleA}{HTML}{C0392B}
+\definecolor{RuleB}{HTML}{2E7D32}
+\definecolor{RuleC}{HTML}{B8860B}
+\definecolor{RuleD}{HTML}{1F6F8B}
+

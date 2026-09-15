@@ -4,7 +4,12 @@
 
 \title{Fractals}
 \subtitle{Infinite Details from Simple Rules}
-\author{Speaker 1, Speaker 2, Speaker 3}   % <-- names
+% ===== SPEAKER NAMES - the only place to edit them =====
+% \author[short form -> page footer]{full form -> title page}
+\author[Aditya, Sami, Pritom]{%
+  Aditya Tirtho Roy (2305178)\\
+  Farhan Ehsas Sami (2305177)\\
+  Pritom Biswas (2305160)}
 \institute{Department of Computer Science and Engineering\\
   Bangladesh University of Engineering and Technology (BUET)}
 \date{CSE 200 Presentation}
@@ -21,7 +26,7 @@
 
 \begin{document}
 
-\begin{frame}
+\begin{frame}[plain]
   \titlepage
 \end{frame}
 
@@ -34,7 +39,7 @@
 % ---------------------------------------------------------------
 % Frame 1 of 3: The crisis — an assumption calculus took for granted
 % ---------------------------------------------------------------
-\begin{frame}{A Crisis in 19th-Century Mathematics}
+\begin{frame}[shrink]{A Crisis in 19th-Century Mathematics}
   \small
   For centuries, calculus rested on an assumption that felt obvious:
 
@@ -63,7 +68,7 @@
   \end{center}
 
   \pause
-  \vspace{0.2cm}
+  \vspace{0.1cm}
   He constructed a function that is \highlight{continuous everywhere},
   yet \highlight{differentiable nowhere}: infinitely jagged, at every
   single scale, with no tangent line anywhere at all.
@@ -72,7 +77,7 @@
 % ---------------------------------------------------------------
 % Frame 2 of 3: The "monster" era — mathematicians before Mandelbrot
 % ---------------------------------------------------------------
-\begin{frame}{Mathematical "Monsters"}
+\begin{frame}[shrink]{Mathematical "Monsters"}
   \small
   Weierstrass's function was treated as a \highlight{pathological
   monster} — proof that pictures and intuition could not be trusted,
@@ -117,7 +122,7 @@
 % ---------------------------------------------------------------
 % Frame 3 of 3: Mandelbrot's question and reframing
 % ---------------------------------------------------------------
-\begin{frame}{Mandelbrot's Question}
+\begin{frame}[shrink]{Mandelbrot's Question}
   \small
   In the 1960s, working at IBM, \highlight{Benoit Mandelbrot} asked a
   deceptively simple question:
@@ -412,7 +417,7 @@
 % ---------------------------------------------------------------
 % S2 Frame 2: Dimensions We Know (3 cumulative overlays)
 % ---------------------------------------------------------------
-\begin{frame}{Dimensions We Know}
+\begin{frame}[shrink]{Dimensions We Know}
   \small
   We are all familiar with integer dimensions:
   \vspace{0.2cm}
@@ -794,7 +799,7 @@
 % ---------------------------------------------------------------
 % S2 Frame 5: The Self-Similarity Rule (2 overlays)
 % ---------------------------------------------------------------
-\begin{frame}{The Self-Similarity Rule}
+\begin{frame}[shrink]{The Self-Similarity Rule}
   \centering
   \small
   After scaling by factor $r$, the number of self-similar pieces is:
@@ -900,8 +905,8 @@
       \end{tikzpicture}
     \end{center}
 
-    \vspace{0.15cm}
-    \centering\small
+    \vspace{-0.05cm}
+    \centering\footnotesize
     \textit{Can we use this same rule to find the dimension of a \highlight{fractal}?}
   }%
 \end{frame}
@@ -1095,7 +1100,7 @@
 % ---------------------------------------------------------------
 % S2 Frame 8: The General Theory — Box-Counting Dimension
 % ---------------------------------------------------------------
-\begin{frame}{The General Theory: Box-Counting Dimension}
+\begin{frame}[shrink]{The General Theory: Box-Counting Dimension}
   \small
   The \highlight{Self-Similarity Dimension} works beautifully for
   self-similar fractals. But what about more complex shapes?
@@ -1136,7 +1141,7 @@
 % ---------------------------------------------------------------
 % S2 Frame 9: Handoff to Speaker 3
 % ---------------------------------------------------------------
-\begin{frame}{Handoff to Speaker 3}
+\begin{frame}[shrink]{Handoff to Speaker 3}
   \small
   We've now uncovered a remarkable property of fractals:
 
@@ -1165,7 +1170,7 @@
     \end{tikzpicture}
   \end{center}
 
-  \vspace{0.2cm}
+  \vspace{0.05cm}
   \pause
   That's exactly where Speaker~3 takes us ---
   fractals in nature, art, and computation.
@@ -1209,25 +1214,17 @@
 % S3 Frame 2: Nature — real photos next to a rule-grown tree
 % ---------------------------------------------------------------
 \begin{frame}{Nature draws with one rule, repeated}
-  \begin{columns}[T]
-    \begin{column}{0.62\textwidth}
-      \centering
-      \includegraphics[width=0.42\textwidth]{images/part3/nature_romanesco.png}\hfill
-      \onslide<2->{\includegraphics[width=0.42\textwidth]{images/part3/nature_snowflake.png}}\\[3pt]
-      \onslide<3->{\includegraphics[width=0.42\textwidth]{images/part3/nature_aloe.png}}\hfill
-      \onslide<4->{\includegraphics[width=0.42\textwidth]{images/part3/nature_pinecone.png}}
-    \end{column}
-    \begin{column}{0.36\textwidth}
-      \centering
-      \onslide<5->
-      \includegraphics[width=0.75\textwidth]{images/tree/7.png}\\[2pt]
-      {\footnotesize\color{DarkGray} grown by a computer from\\
-        one rule: $F \rightarrow T[-F][+F]$}
-    \end{column}
-  \end{columns}
-  \vspace{0.2cm}
-  \onslide<6->{\takeaway{Broccoli, ice, leaves, cones: the \highlight{same shape at every zoom} ---
-    exactly what the Sierpinski rule did on paper.}}
+  \centering
+  \vspace{0.04cm}
+  \includegraphics[width=0.285\textwidth]{images/part3/nature_romanesco.png}%
+  \hspace{0.05\textwidth}%
+  \onslide<2->{\includegraphics[width=0.285\textwidth]{images/part3/nature_snowflake.png}}\\[7pt]
+  \onslide<3->{\includegraphics[width=0.285\textwidth]{images/part3/nature_aloe.png}}%
+  \hspace{0.05\textwidth}%
+  \onslide<4->{\includegraphics[width=0.285\textwidth]{images/part3/nature_pinecone.png}}
+
+  \vspace{0.18cm}
+  \onslide<5->{\takeaway{Broccoli, ice, leaves, cones --- the \highlight{same shape at every zoom}.}}
 \end{frame}
 
 % ---------------------------------------------------------------
@@ -1235,78 +1232,100 @@
 % ---------------------------------------------------------------
 \begin{frame}{A tree built from nothing but squares}
   \centering
-  \includegraphics[width=0.235\textwidth]{images/part3/pythagoras_1.png}\hfill
-  \onslide<2->{\includegraphics[width=0.235\textwidth]{images/part3/pythagoras_2.png}}\hfill
-  \onslide<3->{\includegraphics[width=0.235\textwidth]{images/part3/pythagoras_3.png}}\hfill
-  \onslide<4->{\includegraphics[width=0.235\textwidth]{images/part3/pythagoras_4.png}}
+  \includegraphics[width=0.31\textwidth]{images/part3/pythagoras_1.png}\hfill
+  \onslide<2->{\includegraphics[width=0.31\textwidth]{images/part3/pythagoras_2.png}}\hfill
+  \onslide<3->{\includegraphics[width=0.31\textwidth]{images/part3/pythagoras_3.png}}
 
-  \vspace{0.05cm}
-  \onslide<5->{{\small Stand a \highlight{right triangle} on each square's top edge and grow a
+  \vspace{0.2cm}
+  \onslide<4->{{\small Stand a \highlight{right triangle} on each square's top edge and grow a
     new square on each leg --- so $a^2+b^2=c^2$ sits at every single joint.}}
 
-  \vspace{0.1cm}
-  \onslide<6->{\takeaway{At $45^\circ$ the two branches match exactly. \highlight{Tilt the triangle}
-    and they stop matching --- the tree leans, the way a real one grows toward the light.}}
+  \vspace{0.2cm}
+  \onslide<5->{\takeaway{Nobody designed a single branch. \highlight{One rule}, repeated twelve
+    times, and a tree appears.}}
 
-  \source{Pythagorean tree, after A.~E.~Bosman (1942); symmetric at $45^\circ$, leaning at $55^\circ$.}
+  \source{Pythagorean tree, after A.~E.~Bosman (1942), drawn at $45^\circ$.}
 \end{frame}
 
 % ---------------------------------------------------------------
-% S3 Frame 4: Richardson plot — Speaker 2's dimension, from data
+% S3 Frame 3b: the same rule, tilted — now it looks alive
 % ---------------------------------------------------------------
-\begin{frame}{Plot it on log--log axes: the slope is the dimension}
-  \small Walk a ruler of length $\ell$ along Britain's coast, add up the steps,
-  then shrink $\ell$ and measure again.\par\normalsize
-
-  \vspace{0.1cm}
+\begin{frame}{Tilt the rule and it starts to look alive}
   \begin{columns}[c]
-    \begin{column}{0.68\textwidth}
+    \begin{column}{0.57\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{images/part3/richardson.png}
+      \includegraphics[width=\textwidth]{images/part3/pythagoras_4.png}
     \end{column}
-    \begin{column}{0.31\textwidth}
-      \begin{center}
-        \onslide<2->{{\fontsize{26}{30}\selectfont\bfseries\color{PrimaryColor} $D \approx 1.3$}}\\[6pt]
-        \onslide<3->{{\small\color{DarkGray} Mandelbrot (1967) found $1.25$}}
-      \end{center}
+    \begin{column}{0.41\textwidth}
+      \small
+      \begin{itemize}
+        \item<2-> At $45^\circ$ the two branches match \highlight{exactly} --- too perfect to be real
+        \item<3-> Tilt that triangle to $55^\circ$ and they stop matching
+        \item<4-> The tree \highlight{leans}, the way a real one grows toward the light
+      \end{itemize}
       \vspace{0.3cm}
-      \onslide<4->{\takeaway{Speaker~2's box-counting idea, done with a ruler instead of boxes.}}
+      \onslide<5->{\takeaway{\highlight{One number changed} --- and a diagram turns into a plant.}}
     \end{column}
   \end{columns}
-  \vspace{0.2cm}
-  \source{Ruler-walk on the full-resolution GSHHG outline of Great Britain; rulers 4--256 km.}
 \end{frame}
 
 % ---------------------------------------------------------------
 % S3 Frame 5: The body — branching packs area into volume
 % ---------------------------------------------------------------
-\begin{frame}{Your body branches to pack a huge surface into a small space}
-  \begin{columns}[c]
-    \begin{column}{0.58\textwidth}
-      \centering
-      \includegraphics[width=0.62\textwidth]{images/part3/retina.png}\hfill
-      \onslide<2->{\raisebox{0.14\textwidth}{\includegraphics[width=0.34\textwidth]{images/part3/retina_zoom.png}}}\\[2pt]
-      {\footnotesize\color{DarkGray} blood vessels in a human eye, and a zoom-in}
-    \end{column}
-    \begin{column}{0.42\textwidth}
-      \small
-      \begin{itemize}
-        \item<3-> Lungs: about \highlight{23 splits}\\
-          $\Rightarrow$ $\sim$\highlight{70 m$^2$} of surface\\
-          inside $\sim$5 litres
-        \item<4-> Vessels: every cell within reach, using little space
-        \item<5-> Doctors track the \highlight{dimension} of eye vessels to spot disease early
-      \end{itemize}
-    \end{column}
-  \end{columns}
+\begin{frame}{Branching packs a huge surface into a small space}
+  \centering
+  \includegraphics[height=0.25\textwidth]{images/part3/lungs.png}\hfill
+  \onslide<2->{\includegraphics[height=0.25\textwidth]{images/part3/eye_full.png}}\hfill
+  \onslide<3->{\includegraphics[height=0.25\textwidth]{images/part3/eye_zoom.png}}
+
+  \vspace{0.12cm}
+  {\scriptsize\color{DarkGray} airways and blood vessels of the lung \quad
+   vessels in the retina \quad the same vessels, zoomed in}
+
+  \vspace{0.15cm}
+  \begin{itemize}\small
+    \item<4-> Lungs: about \highlight{23 splits} $\Rightarrow$ $\sim$\highlight{70 m$^2$}
+      of surface packed inside $\sim$5 litres
+    \item<5-> Doctors track the \highlight{dimension} of retinal vessels to spot disease early
+  \end{itemize}
+
   \vspace{0.05cm}
   \onslide<6->{\takeaway{Branching again and again is nature's cheapest way to get \highlight{area out of volume}.}}
 
-  \source{Photo: M.~Häggström, ``Fundus photograph of normal left eye'', 2014, CC0. Lung figures: Weibel (1963).}
+  \source{Lung branching figures: Weibel (1963).}
 \end{frame}
 
 % ---------------------------------------------------------------
-% S3 Frame 6: Fractal compression — store the rule, not the pixels
+% S3 Frame 6a: what the four rules actually are
+% ---------------------------------------------------------------
+\begin{frame}{The whole fern is just four rules}
+  \begin{columns}[c]
+    \begin{column}{0.40\textwidth}
+      \centering
+      \includegraphics[width=0.82\textwidth]{images/part3/fern_rules.png}
+    \end{column}
+    \begin{column}{0.58\textwidth}
+      \small
+      Every dot is placed by \highlight{one of four rules}, chosen at random.
+      Colour each dot by the rule that drew it:
+
+      \vspace{0.25cm}
+      \begin{itemize}
+        \item<2-> {\color{RuleA}$\blacksquare$}\ \ the \highlight{stem}
+        \item<3-> {\color{RuleB}$\blacksquare$}\ \ the \highlight{whole fern}, shrunk and tilted
+        \item<4-> {\color{RuleC}$\blacksquare$}\ \ the \highlight{left} leaflet
+        \item<5-> {\color{RuleD}$\blacksquare$}\ \ the \highlight{right} leaflet
+      \end{itemize}
+
+      \vspace{0.25cm}
+      \onslide<6->{\takeaway{Rule 2 draws a \highlight{small copy of the whole plant}. That single
+        line is where all the detail comes from.}}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+% S3 Frame 6b: Fractal compression — store the rule, not the pixels
 % ---------------------------------------------------------------
 \begin{frame}{Fractal compression: a whole plant in 28 numbers}
   \begin{columns}[c]
@@ -1349,25 +1368,36 @@
 \end{frame}
 
 % ---------------------------------------------------------------
+% S3 Frame 7b: how far the same rule can go
+% ---------------------------------------------------------------
+\begin{frame}{Keep stacking layers and you get a world}
+  \centering
+  \includegraphics[width=0.97\textwidth]{images/part3/terrain_15.png}
+
+  \vspace{0.1cm}
+  \onslide<2->{\takeaway{Same rule, \highlight{15 layers} instead of 7 --- ridges, valleys, snow
+    lines and lakes. Not one of them was drawn by hand.}}
+
+  \source{15 layers of value noise, each half the width and $0.55\times$ the height of the one before.}
+\end{frame}
+
+% ---------------------------------------------------------------
 % S3 Frame 8: Limits — real fractals stop
 % ---------------------------------------------------------------
-\begin{frame}{Real fractals stop at some scale}
-  \begin{columns}[c]
-    \begin{column}{0.66\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{images/part3/richardson_limit.png}
-    \end{column}
-    \begin{column}{0.33\textwidth}
-      \small
-      \begin{itemize}
-        \item<2-> Coast: bays look like bays, but \highlight{sand grains don't}
-        \item<3-> Lungs: stop after $\sim$23 splits
-        \item<4-> Only the Sierpinski triangle goes on \highlight{forever}
-      \end{itemize}
-      \vspace{0.2cm}
-      \onslide<5->{\takeaway{A fractal is a \highlight{model} of nature --- and every model has a range where it works.}}
-    \end{column}
-  \end{columns}
+\begin{frame}{One honest catch: real fractals stop}
+  \vspace{0.3cm}
+  \large
+  \begin{itemize}\itemsep0.45em
+    \item<1-> A fern looks like a fern \ldots\ until you reach a single \highlight{cell}
+    \item<2-> Lungs stop branching after about \highlight{23 splits}
+    \item<3-> A tree runs out at the last \highlight{twig}
+    \item<4-> Only the mathematical ones --- Sierpinski, Koch --- go on \highlight{forever}
+  \end{itemize}
+
+  \vspace{0.5cm}
+  \normalsize
+  \onslide<5->{\takeaway{A fractal is a \highlight{model} of nature --- and every good model knows
+    the range where it works.}}
 \end{frame}
 
 % ---------------------------------------------------------------
@@ -1392,9 +1422,9 @@
     \begin{column}{0.33\textwidth}
       \centering
       \onslide<3->{{\small\bfseries\color{SecondaryColor} Part 3 --- the world}}\\[4pt]
-      \onslide<3->{\includegraphics[width=0.45\textwidth]{images/britain.png}}\\[4pt]
-      \onslide<3->{{\small trees, coasts, lungs,}}\\
-      \onslide<3->{{\small ferns, game worlds}}
+      \onslide<3->{\includegraphics[width=0.62\textwidth]{images/part3/pythagoras_4.png}}\\[4pt]
+      \onslide<3->{{\small trees, lungs, ferns,}}\\
+      \onslide<3->{{\small game worlds}}
     \end{column}
   \end{columns}
 
@@ -1422,9 +1452,7 @@
   \begin{itemize}
     \item B.~Mandelbrot, ``How long is the coast of Britain? Statistical self-similarity and fractional dimension,'' \textit{Science}, 1967.
     \item B.~Mandelbrot, \textit{The Fractal Geometry of Nature}, 1982.
-    \item P.~Wessel and W.~H.~F.~Smith, ``A global, self-consistent, hierarchical, high-resolution shoreline database,'' \textit{J.~Geophys.~Res.}, 1996 (GSHHG data).
     \item E.~R.~Weibel, \textit{Morphometry of the Human Lung}, Springer, 1963.
-    \item M.~Häggström, ``Medical gallery of Mikael Häggström 2014,'' \textit{WikiJournal of Medicine}, 2014 (retina photograph, CC0).
     \item M.~F.~Barnsley, \textit{Fractals Everywhere}, Academic Press, 1988 (iterated function systems, the fern).
     \item A.~E.~Bosman, \textit{Het wondere onderzoekingsveld van de vlakke meetkunde}, 1957 (Pythagorean tree, drawn 1942).
     \item A.~Fournier, D.~Fussell, L.~Carpenter, ``Computer rendering of stochastic models,'' \textit{Comm.~ACM}, 1982 (fractal terrain).

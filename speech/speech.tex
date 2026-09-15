@@ -90,11 +90,11 @@ when you are nervous.
 \hline
 \textbf{Speaker} & \textbf{Covers} & \textbf{Time} & \textbf{Your one job} \\
 \hline
-Speaker 1 & History, definition, Sierpinski triangle & 3 min &
+Speaker 1 \newline {\footnotesize Aditya} & History, definition, Sierpinski triangle & 3 min &
   Show that normal measurement \emph{breaks}. \\[4pt]
-Speaker 2 & Fractal dimension & 3 min &
+Speaker 2 \newline {\footnotesize Sami} & Fractal dimension & 3 min &
   Give the broken thing a \emph{number}. \\[4pt]
-Speaker 3 & Fractals in the real world & 3 min &
+Speaker 3 \newline {\footnotesize Pritom} & Nature, trees, the body, ferns, game worlds & 3 min &
   Show where that number \emph{shows up}. \\
 \hline
 \end{tabular}
@@ -116,6 +116,7 @@ Gaston Julia          & gas-TOHN ZHOO-lya \\
 Pierre Fatou          & pee-AIR fa-TOO \\
 Benoit Mandelbrot     & ben-WAH MAN-del-brot \\
 Michael Barnsley      & BARNZ-lee \\
+Albert Bosman         & BOSS-man \\
 Romanesco             & roh-ma-NESS-koh \\
 \hline
 \end{tabular}
@@ -128,7 +129,7 @@ Romanesco             & roh-ma-NESS-koh \\
 
 \newpage
 % ================================================================
-\section*{Speaker 1 --- The Surprise}
+\section*{Speaker 1 (Aditya) --- The Surprise}
 
 \begin{speakerbox}{Your goal in one sentence}
   Convince the audience that ordinary geometry \stress{completely breaks} on
@@ -204,7 +205,7 @@ Over to Speaker 2 --- if area and perimeter are useless here, what number
 
 \newpage
 % ================================================================
-\section*{Speaker 2 --- The Number}
+\section*{Speaker 2 (Sami) --- The Number}
 
 \begin{speakerbox}{Your goal in one sentence}
   Take the thing Speaker 1 broke, and \stress{measure it} --- turn ``rough'' from a
@@ -284,62 +285,66 @@ Over to Speaker 3 --- where does this number actually show up?
 
 \newpage
 % ================================================================
-\section*{Speaker 3 --- The World}
+\section*{Speaker 3 (Pritom) --- The World}
 
 \begin{speakerbox}{Your goal in one sentence}
   Show that this is not a maths curiosity --- it is \stress{in nature, in your body,
   and in the software people use every day}.\\[4pt]
   {\small\color{DarkGray} Slides: Fractals in the Real World $\rightarrow$
-  Conclusion \quad$\cdot$\quad about 410 words $\approx$ 3 min}
+  Conclusion (10 slides, 49 clicks) \quad$\cdot$\quad about 430 words}
 \end{speakerbox}
 
 \vspace{0.3cm}
 
-We know what a fractal is, and how to measure one. So where is all of this
-actually hiding?
+We know what a fractal is, and we know how to measure one. So --- where is all of
+this actually hiding?
 
-\cue Everywhere in nature. Romanesco broccoli. A snowflake. An aloe plant. A pine
-cone. In each one, \stress{a small piece looks like the whole thing}. And on the
-right is a tree that nobody designed --- a computer grew it by repeating one rule.
+\cue Everywhere in nature. Romanesco broccoli. \cue A snowflake. \cue An aloe.
+\cue A pine cone. In every one of them, \stress{a small piece looks like the whole
+thing}. \cue The same shape at every zoom.
 
 \cue Here is that idea at its cleanest. Start with a square. Stand a
-\stress{right triangle} on its top edge, and grow a new square on each leg --- so
-Pythagoras' theorem sits at every joint. Then repeat. At forty-five degrees the
-two branches match exactly, and you get a symmetric tree.
-\cue Now tilt that triangle. The branches stop matching --- and the tree
-\stress{leans}, the way a real tree grows toward the light. We changed
-\stress{one number}.
+\stress{right triangle} on its top edge and grow a new square on each leg --- so
+Pythagoras' theorem sits at every joint. \cue Three levels. \cue Seven.
+\cue Twelve --- and a tree appears. \cue Nobody designed a single branch.
 
-\cue Now back to Speaker 1's coastline question --- with real map data. We walked
-rulers of different lengths along Britain's coast and plotted it on log--log axes.
-It comes out a \stress{straight line}, slope about minus 0.28 --- a dimension of
-about \stress{1.28}. Mandelbrot got 1.25. That is Speaker 2's formula, measured
-off the real world.
+\cue Now watch what \stress{one number} does. At forty-five degrees the two
+branches match exactly --- too perfect to be real. \cue Tilt that triangle to
+fifty-five degrees \cue and they stop matching. \cue The tree \stress{leans}, the
+way a real tree grows toward the light.
 
-\cue And it is inside you, too. Your lungs branch about \stress{twenty-three
-times}. That packs roughly \stress{seventy square metres} of surface into about
-five litres of chest. Your blood vessels do the same trick. And doctors now measure
-the fractal dimension of the vessels in your eye --- because when that number
-drops, it can be an \stress{early sign of disease}.
+\cue And it is inside you. This is a cast of a lung --- the airways on one side,
+the blood vessels on the other. \cue These are the vessels in a retina,
+\cue and the same vessels zoomed in. \cue Your lungs split about
+\stress{twenty-three times}, and that packs roughly \stress{seventy square metres}
+of surface into about five litres of chest. \cue Doctors now measure the fractal
+dimension of retinal vessels, because when that number drops it can be an
+\stress{early sign of disease}.
 
-\cue Now a beautiful application. This fern is drawn by \stress{four rules} ---
-each one shrinks and tilts the whole picture. Six numbers each, plus four
-probabilities: \stress{twenty-eight numbers in total}. And those twenty-eight
-numbers redraw the fern at \stress{any resolution}. Zoom in, there is always more
-leaf. That is \stress{fractal compression} --- store the rule, not the pixels.
+\cue Now my favourite one. This fern is drawn by just \stress{four rules}, and
+every dot is coloured by the rule that placed it. \cue Red is the stem.
+\cue Green is the \stress{whole fern, shrunk and tilted} --- that one rule is
+where all the detail comes from. \cue Gold is the left leaflet, \cue blue the
+right.
 
-\cue Games use the same trick. Add smaller and smaller bumps at every scale, and a
-handful of numbers becomes an endless mountain range. Nobody stored that terrain.
-It was \stress{grown}.
+\cue Four rules, six numbers each, plus four probabilities --- \stress{twenty-eight
+numbers}. \cue And those twenty-eight numbers redraw the fern at \stress{any
+resolution}. \cue Zoom in, and there is always more leaf. That is \stress{fractal
+compression}: store the rule, not the pixels.
 
-\cue One honest caveat. \stress{Real fractals stop.} A coastline looks like a
-coastline until you reach sand grains. Lungs stop at about twenty-three. Only the
-mathematical ones go on forever. A fractal is a \stress{model} of nature --- and
-every model has a range where it works.
+\cue Games use the same trick. One layer of bumps. \cue Three. \cue Seven --- and
+a handful of numbers becomes a mountain range. \cue Push it to \stress{fifteen
+layers} and you get ridges, valleys, snow lines and lakes. \cue Nobody drew any of
+it.
 
-\cue So, to bring it together. Part 1 gave us the surprise. Part 2 gave us the
-number. Part 3 gave us the world. Clouds are not spheres, and mountains are not
-cones --- but \stress{roughness has a number, and simple rules make it}.
+\cue One honest catch. \stress{Real fractals stop.} A fern is a fern until you
+reach a single cell. \cue Lungs stop at about twenty-three splits. \cue A tree
+runs out at the last twig. \cue Only the mathematical ones go on forever.
+
+\cue So, to bring it together. Part 1 gave us the surprise, \cue Part 2 gave us
+the number, \cue Part 3 gave us the world. \cue Clouds are not spheres and
+mountains are not cones --- but \stress{roughness has a number, and simple rules
+make it}.
 
 Thank you.
 
@@ -349,6 +354,11 @@ Thank you.
       look at the pictures} --- pause for a beat after each image appears.
     \item The lungs number (70 square metres inside 5 litres) always gets a
       reaction. Say it slowly.
+    \item Your section has the most clicks of the three --- many are just the next
+      picture appearing. \stress{Do not wait for each one}; keep talking and click
+      as you go.
+    \item On the four-rules fern, point at the \stress{green} part when you say
+      ``the whole fern, shrunk''. That is the whole idea of the section.
     \item You close the whole talk. After ``Thank you'', \stress{stop and stand
       still}. Do not trail off or walk away mid-sentence.
     \item \stress{If you blank out}: ``Nature does not store details --- it stores
@@ -376,11 +386,16 @@ No. Real objects are fractal only over a \stress{limited range of scales} ---
 a coastline down to sand grains, lungs for about 23 branchings. Only the
 mathematical ones are infinite. We covered this on the ``Real fractals stop'' slide.
 
-\textbf{Why is the coastline dimension sometimes 1.25 and sometimes 1.28?}\\
-Because it depends on the \stress{map data and the range of ruler lengths} you use.
-Mandelbrot's 1.25 and our 1.28 come from different datasets. The point is that the
-number is consistently \stress{above 1} --- the coast is genuinely rougher than a
-line.
+\textbf{If the fern is only 28 numbers, why are image files so big?}\\
+Because a photograph is not self-similar --- there is no small rule that redraws
+your face. The fern works because it is \stress{built} from four copies of itself.
+Real fractal compression hunts for self-similar \stress{blocks} inside an ordinary
+image, which is far harder and much slower than JPEG.
+
+\textbf{Is the terrain really made of 15 layers?}\\
+Yes --- each layer is half the width and about half the height of the one before.
+After about eight layers the detail is \stress{finer than a pixel}, so the last few
+are there for completeness rather than for anything you can see.
 
 \textbf{Is fractal compression actually used in practice?}\\
 It was developed commercially in the 1990s and works beautifully on
