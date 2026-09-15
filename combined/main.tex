@@ -31,143 +31,114 @@
 \end{frame}
 
 % ================================================================
-% PART 1 — HISTORY (3 frames): the crisis, the pre-Mandelbrot
-% "monsters", and Mandelbrot's reframing.
+% PART 1 — HISTORY (Aditya): the hook, the triangle, the
+% coastline puzzle, then the compressed flashback.
 % ================================================================
 \section{History}
 
+
 % ---------------------------------------------------------------
-% Frame 1 of 3: The crisis — an assumption calculus took for granted
+% Frame 1 of 4: The hook — designing trees the hard way vs. one rule
 % ---------------------------------------------------------------
-\begin{frame}[shrink]{A Crisis in 19th-Century Mathematics}
+\begin{frame}{So, You're Designing All the Trees\ldots}
   \small
-  For centuries, calculus rested on an assumption that felt obvious:
+  \onslide<1->{Imagine you're a game developer. You've just been
+  handed one job: design \highlight{every tree} in the game ---
+  all of them.}
 
-  \begin{conceptbox}{The Assumption}
-    Any continuous curve is \highlight{smooth almost everywhere} —
-    zoom in far enough on any point, and the curve should straighten
-    out into a well-defined tangent line.
-  \end{conceptbox}
+  \vspace{0.2cm}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      \onslide<2->{You could hand-draw every branch, every twig,
+      every leaf, one at a time\ldots}
 
-  \pause
-  \vspace{0.3cm}
-  This wasn't just intuition — it was treated as close to self-evident.
-  \highlight{Continuity} was assumed to imply \highlight{differentiability},
-  almost everywhere, almost always.
+      \vspace{0.15cm}
+      \onslide<3->{\itshape (kind of like how Rockstar's been
+      ``finishing'' GTA~6 for the last decade.)}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering
+      \onslide<4->{\includegraphics[height=2.2cm]{images/tree/img17-removebg-preview.png}}
+    \end{column}
+  \end{columns}
 
-  \pause
-  \vspace{0.3cm}
-  \begin{center}
-    \begin{tikzpicture}
-      \node[conceptbox, text width=0.75\textwidth] {
-        \centering
-        In 1872, \highlight{Karl Weierstrass} broke this assumption —
-        on purpose.
-      };
-    \end{tikzpicture}
-  \end{center}
+  \onslide<4->{
+    \vspace{0.12cm}
+    \begin{center}
+      \begin{tikzpicture}
+        \node[conceptbox, text width=0.85\textwidth] {
+          \centering
+          Or, you write \highlight{one rule} --- ``a branch splits
+          into two smaller branches'' --- and let that rule call
+          itself, again and again, at a smaller scale every time.
+        };
+      \end{tikzpicture}
+    \end{center}
+  }
 
-  \pause
-  \vspace{0.1cm}
-  He constructed a function that is \highlight{continuous everywhere},
-  yet \highlight{differentiable nowhere}: infinitely jagged, at every
-  single scale, with no tangent line anywhere at all.
+  \onslide<5->{
+    \vspace{0.06cm}
+    \takeaway{Trunk becomes branch, branch becomes twig, twig
+    becomes leaf --- \highlight{same rule, every time}. The engine
+    genuinely can't tell the whole tree apart from one tiny piece
+    of it.}
+  }
 \end{frame}
 
 % ---------------------------------------------------------------
-% Frame 2 of 3: The "monster" era — mathematicians before Mandelbrot
+% Frame 2 of 4: The Sierpinski teaser — same trick, simplest form
 % ---------------------------------------------------------------
-\begin{frame}[shrink]{Mathematical "Monsters"}
-  \small
-  Weierstrass's function was treated as a \highlight{pathological
-  monster} — proof that pictures and intuition could not be trusted,
-  and that analysis needed rigorous proof instead.
+\begin{frame}{D\'ej\`a Vu?}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      \small
+      \onslide<1->{Here's the simplest possible version of that
+      same trick: draw a triangle.}
 
-  \vspace{0.2cm}
-  \pause
-  This set off a chain reaction. Mathematicians began deliberately
-  constructing stranger and stranger shapes, to probe exactly where
-  classical geometry broke down:
+      \vspace{0.15cm}
+      \onslide<2->{Cut a smaller triangle out of the middle.}
 
-  \begin{itemize}
-    \item<3-> \highlight{Georg Cantor} (1883) — the Cantor set: an
-      infinite set of points with zero total length.
-    \item<4-> \highlight{Helge von Koch} (1904) — a geometric,
-      drawable curve that is nowhere smooth: the \highlight{Koch curve}.
-    \item<5-> \highlight{Wac\l{}aw Sierpi\'nski} — self-similar shapes
-      like the \highlight{Sierpi\'nski triangle}.
-    \item<6-> \highlight{Felix Hausdorff} (1918) — gave these shapes a
-      number: a \highlight{fractional dimension}, between the familiar
-      integer dimensions.
-    \item<7-> \highlight{Gaston Julia \& Pierre Fatou} ($\sim$1918) —
-      studied iterated functions in the complex plane, without any way
-      to actually see what they looked like.
-  \end{itemize}
+      \vspace{0.15cm}
+      \onslide<3->{Now do that again, inside each of the three
+      triangles you've got left.}
 
-  \pause[8]
-  \vspace{0.2cm}
-  \begin{center}
-    \begin{tikzpicture}
-      \node[conceptbox, text width=0.8\textwidth] {
-        \centering
-        For nearly a century, these were considered
-        \highlight{beautiful but useless} — curiosities built to
-        stress-test the foundations of mathematics, not to describe
-        anything real.
-      };
-    \end{tikzpicture}
-  \end{center}
+      \vspace{0.15cm}
+      \onslide<4->{And again --- forever.}
+
+      \vspace{0.3cm}
+      \onslide<5->{
+        \begin{tikzpicture}
+          \node[conceptbox, text width=0.9\textwidth] {
+            \centering
+            It's basically filming yourself watching TV, while the
+            TV plays that exact clip of you watching TV.
+          };
+        \end{tikzpicture}
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering
+      \foreach \t/\i in {1/0,2/1,3/2,4/3} {
+        \only<\t>{
+          \includegraphics[width=0.85\textwidth]{images/sierpinski/\i.png}
+        }
+      }
+      \only<5->{\includegraphics[width=0.85\textwidth]{images/sierpinski/tvwatch.jpg}}
+    \end{column}
+  \end{columns}
+
+  \onslide<6->{
+    \vspace{0.2cm}
+    \takeaway{Weird, right? That's a \highlight{fractal} --- a
+    shape built out of smaller copies of itself.}
+  }
 \end{frame}
 
 % ---------------------------------------------------------------
-% Frame 3 of 3: Mandelbrot's question and reframing
+% Moved up from the Definition section: the Deja Vu frame ends on
+% "a shape built out of smaller copies of itself", so the formal
+% definition belongs here rather than after the history.
 % ---------------------------------------------------------------
-\begin{frame}[shrink]{Mandelbrot's Question}
-  \small
-  In the 1960s, working at IBM, \highlight{Benoit Mandelbrot} asked a
-  deceptively simple question:
-
-  \begin{center}
-    \begin{tikzpicture}
-      \node[conceptbox, text width=0.8\textwidth] {
-        \centering
-        \textit{``How long is the coast of Britain?''}
-      };
-    \end{tikzpicture}
-  \end{center}
-
-  \pause
-  \vspace{0.2cm}
-  The honest answer: \highlight{it depends on your ruler}. Measure
-  with a 100~km ruler, get one length. Use a 1~km ruler, and the
-  measured length grows — every bay and inlet you'd smoothed over
-  now counts. The length never converges to a single number.
-
-  \pause
-  \vspace{0.2cm}
-  Mandelbrot's insight: this isn't a flaw in the coastline — it's a
-  sign that classical length and area are \highlight{the wrong tools}
-  for something like this. What a coastline actually needs is exactly
-  the "useless" mathematics of Cantor, Koch, and Hausdorff.
-
-  \pause
-  \vspace{0.2cm}
-  \begin{itemize}
-    \item He had a real problem no one had connected to these ideas.
-    \item He had \highlight{computers} — something Cantor, Koch, and
-      Julia never had — letting him \emph{see} these shapes for the
-      first time.
-    \item He united a century of scattered ``monsters'' under one
-      name: \highlight{fractal}, from the Latin \textit{fractus}
-      (``broken'').
-  \end{itemize}
-\end{frame}
-
-% ================================================================
-% PART 2 — DEFINITION + SIERPINSKI CONSTRUCTION WALKTHROUGH
-% ================================================================
-\section{Definition}
-
 \begin{frame}{What are Fractals?}
   \begin{conceptbox}{Definition}
     A \highlight{fractal} is a geometric shape containing detailed
@@ -202,6 +173,92 @@
   \end{center}
 \end{frame}
 
+% ---------------------------------------------------------------
+% Frame 3 of 4: Mandelbrot's question — the coastline pulls history
+% in on its own, instead of a separate "meanwhile, in the 1800s..."
+% ---------------------------------------------------------------
+\begin{frame}{Mandelbrot's Question}
+  \small
+  In the 1960s, working at IBM, \highlight{Benoit Mandelbrot} asked a
+  deceptively simple question:
+
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.8\textwidth] {
+        \centering
+        \textit{``How long is the coast of Britain?''}
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \pause
+  \vspace{0.2cm}
+  The honest answer: \highlight{it depends on your ruler}. Measure
+  with a 100~km ruler, get one length. Use a 1~km ruler, and the
+  measured length grows — every bay and inlet you'd smoothed over
+  now counts. The length never converges to a single number.
+
+  \pause
+  \vspace{0.2cm}
+  Mandelbrot's insight: this isn't a flaw in the coastline — it's a
+  sign that classical length and area are \highlight{the wrong tools}
+  for something like this. What a coastline actually needed was
+  exactly the kind of \highlight{``useless'' geometry} mathematicians
+  had quietly been building for a century already --- without knowing
+  why.
+\end{frame}
+
+% ---------------------------------------------------------------
+% Frame 4 of 4: Where that toolkit came from — compressed flashback,
+% deliberately ends back on the Sierpinski triangle for the handoff.
+% ---------------------------------------------------------------
+\begin{frame}{Borrowed Tools}
+  \small
+  Mandelbrot wasn't building from nothing.
+
+  \pause
+  \vspace{0.2cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.8\textwidth] {
+        \centering
+        Back in 1872, \highlight{Karl Weierstrass} broke an
+        assumption every mathematician had taken for granted ---
+        on purpose.
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \pause
+  \vspace{0.2cm}
+  That set off a decades-long spree: mathematicians started building
+  weirder and weirder shapes on purpose, just to see where ordinary
+  geometry broke down --- \highlight{Cantor}'s dust and
+  \highlight{Koch}'s endless jagged curve.
+
+  \pause
+  \vspace{0.2cm}
+  For nearly a century, these were dismissed as
+  \highlight{beautiful but useless}. Mandelbrot was the one who
+  realized they weren't useless at all --- he gave the whole family
+  a name: \highlight{fractal}.
+
+  \pause
+  \vspace{0.3cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[conceptbox, text width=0.85\textwidth] {
+        \centering
+        And that triangle? The exact one you watched me draw a few
+        minutes ago.
+      };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+% ================================================================
+% PART 2 — SIERPINSKI CONSTRUCTION WALKTHROUGH
+% ================================================================
 \section{Some Fractals}
 
 \begin{frame}{The Sierpinski Triangle}
