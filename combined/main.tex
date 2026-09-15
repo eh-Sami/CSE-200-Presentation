@@ -1353,35 +1353,6 @@
 \end{frame}
 
 % ---------------------------------------------------------------
-% S3 Frame 6a: what the four rules actually are
-% ---------------------------------------------------------------
-\begin{frame}{The whole fern is just four rules}
-  \begin{columns}[c]
-    \begin{column}{0.40\textwidth}
-      \centering
-      \includegraphics[width=0.82\textwidth]{images/part3/fern_rules.png}
-    \end{column}
-    \begin{column}{0.58\textwidth}
-      \small
-      Every dot is placed by \highlight{one of four rules}, chosen at random.
-      Colour each dot by the rule that drew it:
-
-      \vspace{0.25cm}
-      \begin{itemize}
-        \item<2-> {\color{RuleA}$\blacksquare$}\ \ the \highlight{stem}
-        \item<3-> {\color{RuleB}$\blacksquare$}\ \ the \highlight{whole fern}, shrunk and tilted
-        \item<4-> {\color{RuleC}$\blacksquare$}\ \ the \highlight{left} leaflet
-        \item<5-> {\color{RuleD}$\blacksquare$}\ \ the \highlight{right} leaflet
-      \end{itemize}
-
-      \vspace{0.25cm}
-      \onslide<6->{\takeaway{Rule 2 draws a \highlight{small copy of the whole plant}. That single
-        line is where all the detail comes from.}}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-% ---------------------------------------------------------------
 % S3 Frame 6b: Fractal compression — store the rule, not the pixels
 % ---------------------------------------------------------------
 \begin{frame}{Fractal compression: a whole plant in 28 numbers}
@@ -1429,13 +1400,13 @@
 % ---------------------------------------------------------------
 \begin{frame}{Keep stacking layers and you get a world}
   \centering
-  \includegraphics[width=0.97\textwidth]{images/part3/terrain_15.png}
+  \includegraphics[width=0.82\textwidth]{images/part3/voxel_world.png}
 
-  \vspace{0.1cm}
-  \onslide<2->{\takeaway{Same rule, \highlight{15 layers} instead of 7 --- ridges, valleys, snow
-    lines and lakes. Not one of them was drawn by hand.}}
+  \vspace{0.05cm}
+  \onslide<2->{\takeaway{Round the same heights off to whole \highlight{blocks} and you get a
+    sandbox world --- grass, beaches, lakes, a snow peak. Still just the rule.}}
 
-  \source{15 layers of value noise, each half the width and $0.55\times$ the height of the one before.}
+  \source{The same 15 layers of noise, rounded into blocks and drawn isometrically.}
 \end{frame}
 
 % ---------------------------------------------------------------
@@ -1455,50 +1426,6 @@
   \normalsize
   \onslide<5->{\takeaway{A fractal is a \highlight{model} of nature --- and every good model knows
     the range where it works.}}
-\end{frame}
-
-% ---------------------------------------------------------------
-% S3 Frame 9: Conclusion — the whole talk in one row
-% ---------------------------------------------------------------
-\begin{frame}{One rule, repeated, explains what smooth geometry couldn't}
-  \begin{columns}[T]
-    \begin{column}{0.33\textwidth}
-      \centering
-      {\small\bfseries\color{SecondaryColor} Part 1 --- the surprise}\\[4pt]
-      \includegraphics[width=0.7\textwidth]{images/sierpinski/5.png}\\[4pt]
-      {\small zero area,\\ infinite edge}
-    \end{column}
-    \begin{column}{0.33\textwidth}
-      \centering
-      \onslide<2->{{\small\bfseries\color{SecondaryColor} Part 2 --- the number}}\\[10pt]
-      \onslide<2->{{\fontsize{22}{26}\selectfont\color{PrimaryColor}
-        $D=\dfrac{\log N}{\log(1/r)}$}}\\[12pt]
-      \onslide<2->{{\small Sierpinski $\approx 1.585$}}\\
-      \onslide<2->{{\small Koch $\approx 1.262$}}
-    \end{column}
-    \begin{column}{0.33\textwidth}
-      \centering
-      \onslide<3->{{\small\bfseries\color{SecondaryColor} Part 3 --- the world}}\\[4pt]
-      \onslide<3->{\includegraphics[width=0.62\textwidth]{images/part3/pythagoras_4.png}}\\[4pt]
-      \onslide<3->{{\small trees, lungs, ferns,}}\\
-      \onslide<3->{{\small game worlds}}
-    \end{column}
-  \end{columns}
-
-  \vspace{0.15cm}
-  \onslide<4->
-  \begin{center}
-    \begin{tikzpicture}
-      \node[conceptbox, text width=0.85\textwidth] {
-        \centering
-        \textit{``Clouds are not spheres, mountains are not cones, coastlines are not
-        circles\ldots''} --- Mandelbrot \\[3pt]
-        \highlight{Roughness has a number, and simple rules make it.}
-      };
-    \end{tikzpicture}
-  \end{center}
-  \onslide<5->
-  \begin{center}{\small\color{DarkGray}\itshape Thank you --- questions welcome.}\end{center}
 \end{frame}
 
 % ---------------------------------------------------------------
